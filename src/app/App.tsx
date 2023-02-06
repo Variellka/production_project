@@ -1,11 +1,8 @@
-import { Suspense } from "react";
-import { Link } from "react-router-dom";
-import { Route, Routes } from "react-router-dom";
 import "./styles/index.scss";
 import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "app/providers/ThemeProvider";
-import { AboutPage } from "pages/AboutPage";
-import { MainPage } from "pages/MainPage";
+import { AppRouter } from "./providers/router";
+import { Navbar } from "widgets/Navbar";
 
 export enum Theme {
   LIGHT = "light",
@@ -17,14 +14,8 @@ const App = () => {
 
   return (
     <div className={classNames("app", {}, [theme])}>
-      <Link to={"/"}>MAIN</Link>
-      <Link to={"/about"}>ABOUT</Link>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path={"/about"} element={<AboutPage />} />
-          <Route path={"/"} element={<MainPage />} />
-        </Routes>
-      </Suspense>
+      <Navbar />
+      <AppRouter />
       <button type="button" onClick={toggleTheme}>
         change theme
       </button>
