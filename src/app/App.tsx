@@ -3,7 +3,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { useTheme } from "app/providers/ThemeProvider";
 import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
-import Button from "shared/ui/Button/Button";
+import { SideBar } from "widgets/SideBar";
 
 export enum Theme {
   LIGHT = "light",
@@ -16,7 +16,10 @@ const App = () => {
   return (
     <div className={classNames("app", {}, [theme])}>
       <Navbar />
-      <AppRouter />
+      <div className="content-page">
+        <SideBar />
+        <AppRouter />
+      </div>
     </div>
   );
 };
