@@ -1,19 +1,20 @@
 .navbar {
-  width: 100%;
-  height: var(--navbar-height);
-  background: var(--inverted-bg-color);
-  display: flex;
-  align-items: center;
-  padding: 15px;
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--inverted-bg-color);
+    display: flex;
+    align-items: center;
+    padding: 15px;
 }
 
 .links {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 .link {
-  margin: 10px;
-  &:hover {
-    color: var(--alert-color);
-  }
+    margin: 10px;
+
+    &:hover {
+        color: var(--alert-color);
+    }
 }
