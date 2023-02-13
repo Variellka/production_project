@@ -2,5 +2,6 @@
   "language": "EN",
   "menu": "меню",
   "main": "главная",
-  "about": "о нас"
+  "about": "о нас",
+  "page not found":"страница не найдена"
 }
