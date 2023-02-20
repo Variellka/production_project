@@ -13,10 +13,12 @@ export interface BuildOptions {
   mode: webpack.Configuration['mode']
   paths: BuildPaths
   isDev: boolean
-  port: number
+  port: number,
+  analyze: boolean
 }
 
 export interface BuildEnv {
+  analyze: boolean;
   mode: webpack.Configuration['mode']
   port: number
 }
