@@ -6,11 +6,6 @@ import { SideBar } from 'widgets/SideBar';
 import { Suspense } from 'react';
 import { AppRouter } from './providers/router';
 
-export enum Theme {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
-
 const App = () => {
     const { theme } = useTheme();
 

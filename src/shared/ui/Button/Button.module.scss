@@ -6,3 +6,16 @@
     cursor: pointer;
     color: var(--primary-color);
 }
+
+.page-error {
+    background: #970841;
+    outline: none;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+}
