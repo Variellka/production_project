@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: installing packages
+        run: npm install
       - name: production build
         run: npm run build:prod
       - name: lint types
