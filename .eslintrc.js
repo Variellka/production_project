@@ -36,7 +36,7 @@ module.exports = {
         'i18next/no-literal-string': ['error', {
             markupOnly: true,
         }],
-        'linebreak-style': ['warn', 'windows'],
+        'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
         'max-len': ['error', {
             ignoreComments: true,
             code: 100,
