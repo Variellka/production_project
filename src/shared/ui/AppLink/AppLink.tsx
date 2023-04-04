@@ -18,6 +18,7 @@ export const AppLink: FC<AppLinkProps> = (props) => {
     const {
         to, className, children, theme = AppLinkTheme.PRIMARY,
     } = props;
+
     return (
         <NavLink
             style={({ isActive }) => (isActive

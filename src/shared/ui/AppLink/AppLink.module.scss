@@ -2,24 +2,12 @@
     color: var(--alert-color);
     text-transform: uppercase;
     font-weight: bold;
-
-    .active {
-        color: var(--secondary-color);
-    }
 }
 
 .primary {
     color: var(--bg-color);
-
-    .active {
-        color: var(--secondary-color);
-    }
 }
 
 .secondary {
     color: var(--inverted-bg-color);
-
-    .active {
-        color: var(--secondary-color);
-    }
 }

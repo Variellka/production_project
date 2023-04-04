@@ -33,12 +33,12 @@ const SideBar: FC<SideBarProps> = ({ className }: SideBarProps) => {
         >
             <div className={cls.links}>
                 <AppLink theme={AppLinkTheme.PRIMARY} to={RoutePath.main} className={cls.link}>
-                    <HomeIcon className={classNames(cls.icon, {}, [cls.basic])} />
-                    <span>{t('main')}</span>
+                    <HomeIcon className={classNames(cls.icon, {}, [])} />
+                    {!collapsed && <span>{t('main')}</span>}
                 </AppLink>
                 <AppLink to={RoutePath.about} className={cls.link}>
-                    <AboutIcon className={classNames(cls.icon, {}, [cls.basic])} />
-                    <span>{t('about')}</span>
+                    <AboutIcon className={classNames(cls.icon, {}, [])} />
+                    {!collapsed && <span>{t('about')}</span>}
                 </AppLink>
             </div>
             <div className={cls.switchers}>
