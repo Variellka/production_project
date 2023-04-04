@@ -1,5 +1,6 @@
 {
-  "language": "RU",
+  "short language": "RU",
+  "language": "russian",
   "menu": "menu",
   "main": "main",
   "about": "about",

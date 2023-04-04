@@ -1,5 +1,6 @@
 {
-  "language": "EN",
+  "short language": "EN",
+  "language": "english",
   "menu": "меню",
   "main": "главная",
   "about": "о нас",

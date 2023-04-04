@@ -1,6 +1,7 @@
 import { type FC } from 'react';
-import { Link, type LinkProps } from 'react-router-dom';
+import { type LinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { NavLink } from 'react-router-dom';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {
@@ -18,11 +19,18 @@ export const AppLink: FC<AppLinkProps> = (props) => {
         to, className, children, theme = AppLinkTheme.PRIMARY,
     } = props;
     return (
-        <Link
+        <NavLink
+            style={({ isActive }) => (isActive
+                ? {
+                    color: 'var(--secondary-color)',
+                }
+                : {
+                    color: 'var(--bg-color)',
+                })}
             to={to}
             className={classNames(cls.AppLink, {}, [className, cls[theme]])}
         >
             {children}
-        </Link>
+        </NavLink>
     );
 };

@@ -14,7 +14,7 @@
 }
 
 .loader::after {
-    box-shadow: 0 3px 0 #ff3d00 inset;
+    box-shadow: 0 3px 0 var(--secondary-color) inset;
     animation: rotate 2s linear infinite;
 }
 

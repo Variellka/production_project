@@ -4,7 +4,7 @@
     border: none;
     display: flex;
     cursor: pointer;
-    color: var(--primary-color);
+    color: var(--bg-color);
 }
 
 .page-error {
@@ -18,4 +18,17 @@
     color: white;
     padding: 15px;
     border-radius: 10px;
+}
+
+.sideBar {
+    outline: none;
+    border: none;
+    height: 80px;
+    width: 80px;
+    font-size: 30px;
+    display: flex;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    justify-content: center;
+    align-items: center;
 }
