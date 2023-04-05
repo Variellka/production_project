@@ -31,3 +31,16 @@ Error.args = {
     theme: ThemeButton.PAGE_ERROR,
     children: 'click me',
 };
+
+export const SideBar = Template.bind({});
+SideBar.args = {
+    theme: ThemeButton.SIDEBAR,
+    children: '>',
+};
+
+export const SideBarDark = Template.bind({});
+SideBarDark.args = {
+    theme: ThemeButton.SIDEBAR,
+    children: '>',
+};
+SideBarDark.decorators = [ThemeDecorator(Theme.DARK)];
