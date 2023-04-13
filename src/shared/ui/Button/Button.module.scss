@@ -1,10 +1,15 @@
-.clear {
+.clear,
+.clear-inverted {
     background: none;
     outline: none;
     border: none;
     display: flex;
     cursor: pointer;
     color: var(--bg-color);
+}
+
+.clear-inverted {
+    color: var(--inverted-bg-color);
 }
 
 .page-error {
