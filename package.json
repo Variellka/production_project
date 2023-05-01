@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npx jest --config ./config/jest/jest.config.ts",
     "start": "npx webpack serve --port=3000",
+    "start:dev:server": "node ./json-server/index.js",
     "build:prod": "npx webpack --env mode=production",
     "build:dev": "npx webpack --env mode=development",
     "lint:ts": " eslint \"**/*.{ts,tsx}\"",
@@ -68,6 +69,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "jest-environment-jsdom": "^27.5.1",
+    "json-server": "^0.17.3",
     "loki": "^0.31.0",
     "mini-css-extract-plugin": "^2.5.3",
     "reg-cli": "^0.17.7",
