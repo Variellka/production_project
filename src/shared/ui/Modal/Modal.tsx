@@ -10,22 +10,26 @@ interface ModalProps {
   className?: string;
   children: ReactNode;
   isOpen?: boolean;
-  onClose?: () => void
+  onClose?: () => void;
+  lazy?: boolean;
 }
 
 export const Modal:FC<ModalProps> = (props) => {
     const {
-        className, children, isOpen, onClose,
+        className, children, isOpen, onClose, lazy,
     } = props;
 
     const { theme } = useTheme();
 
     const [isOpening, setIsOpening] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
+
     const ref = useRef(null);
 
     useEffect(() => {
         if (isOpen) {
+            setIsMounted(true);
             ref.current = setTimeout(() => {
                 setIsOpening(true);
             }, 0);
@@ -56,7 +60,7 @@ export const Modal:FC<ModalProps> = (props) => {
         }
     };
 
-    if (!isOpen) {
+    if (lazy && !isMounted) {
         return null;
     }
 

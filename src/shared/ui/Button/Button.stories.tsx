@@ -44,3 +44,16 @@ SideBarDark.args = {
     children: '>',
 };
 SideBarDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const Modal = Template.bind({});
+Modal.args = {
+    theme: ThemeButton.MODAL,
+    children: 'log in',
+};
+
+export const ModalDark = Template.bind({});
+ModalDark.args = {
+    theme: ThemeButton.MODAL,
+    children: 'log in',
+};
+ModalDark.decorators = [ThemeDecorator(Theme.DARK)];

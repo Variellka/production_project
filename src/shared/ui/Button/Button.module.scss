@@ -37,3 +37,15 @@
     justify-content: center;
     align-items: center;
 }
+
+.modal {
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    display: flex;
+    background: var(--secondary-color);
+    color: var(--bg-color);
+    justify-content: center;
+    align-items: center;
+}
