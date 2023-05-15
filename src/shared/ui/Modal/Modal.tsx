@@ -1,4 +1,6 @@
-import React, { FC, ReactNode } from 'react';
+import React, {
+    FC, ReactNode, useEffect, useRef, useState,
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTheme } from 'app/providers/ThemeProvider';
 import cls from './Modal.module.scss';
@@ -18,8 +20,26 @@ export const Modal:FC<ModalProps> = (props) => {
 
     const { theme } = useTheme();
 
+    const [isOpening, setIsOpening] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        if (isOpen) {
+            ref.current = setTimeout(() => {
+                setIsOpening(true);
+            }, 0);
+        }
+        return () => {
+            setIsOpening(false);
+            setIsClosing(false);
+            clearTimeout(ref.current);
+        };
+    }, [isOpen]);
+
     const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
+        [cls.opened]: isOpening,
+        [cls.isClosing]: isClosing,
     };
 
     const onContentClick = (e: React.MouseEvent) => {
@@ -28,7 +48,11 @@ export const Modal:FC<ModalProps> = (props) => {
 
     const closeHandler = () => {
         if (isOpen) {
-            onClose();
+            setIsClosing(true);
+            ref.current = setTimeout(() => {
+                setIsClosing(false);
+                onClose();
+            }, 200);
         }
     };
 
