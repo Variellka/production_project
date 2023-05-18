@@ -1,0 +1,24 @@
+.Text {
+    & > * {
+        padding: 10px;
+    }
+
+    .mainTitle {
+        color: var(--secondary-color);
+        font: var(--font-l);
+    }
+
+    .title {
+        color: var(--secondary-color);
+        font: var(--font-l);
+    }
+}
+
+.error {
+    color: var(--alert-color);
+
+    .title {
+        color: var(--alert-color);
+        font: var(--font-l);
+    }
+}
