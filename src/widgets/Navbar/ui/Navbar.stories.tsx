@@ -21,6 +21,7 @@ Light.decorators = [StoreDecorator({
         username: 'admin',
         password: '123',
     },
+    user: {},
 })];
 
 export const LightAuth = Template.bind({});
@@ -43,4 +44,5 @@ Dark.decorators = [
             username: 'admin',
             password: '123',
         },
+        user: {},
     })];
