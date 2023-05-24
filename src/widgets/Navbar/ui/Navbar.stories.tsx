@@ -23,6 +23,17 @@ Light.decorators = [StoreDecorator({
     },
 })];
 
+export const LightAuth = Template.bind({});
+LightAuth.args = {};
+LightAuth.decorators = [StoreDecorator({
+    user: {
+        authData: {
+            id: '1',
+            username: 'admin',
+        },
+    },
+})];
+
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [

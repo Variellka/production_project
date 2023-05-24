@@ -44,7 +44,6 @@ export const Navbar = ({ className }: NavbarProps) => {
                     <LogInIcon className={classNames(cls.icon, {}, [])} />
                     {t('log in')}
                 </Button>
-
             </div>
         );
     }
