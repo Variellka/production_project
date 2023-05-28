@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { memo, useCallback } from 'react';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import Loader from 'shared/ui/Loader/Loader';
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { loginByUsername } from '../../model/services/loginByUserName/loginByUsername';
 import { getLoginState } from '../../model/selectors/getLoginState';
 import { loginActions } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
