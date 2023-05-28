@@ -7,5 +7,8 @@
   "page not found": "page not found",
   "unknown error": "something went wrong...",
   "make an error": "make an error",
-  "reload page": "reload page"
+  "reload page": "reload page",
+  "log in" : "log in",
+  "username": "username",
+  "password": "password"
 }

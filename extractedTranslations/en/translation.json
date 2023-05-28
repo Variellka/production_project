@@ -1,12 +1,20 @@
 {
+  "Authorization": "",
   "about": "",
   "about page": "",
+  "decrement": "",
+  "hello": "",
+  "increment": "",
   "language": "",
+  "log in": "",
+  "log out": "",
   "main": "",
   "main page": "",
   "make an error": "",
   "menu": "",
   "page not found": "",
+  "password": "",
   "reload page": "",
-  "unknown error": ""
+  "unknown error": "",
+  "username": ""
 }
