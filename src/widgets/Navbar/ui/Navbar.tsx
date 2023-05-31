@@ -34,7 +34,7 @@ export const Navbar = ({ className }: NavbarProps) => {
     if (!userAuthData) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+                {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
                 <Button
                     theme={ThemeButton.CLEAR}
                     className={cls.links}
