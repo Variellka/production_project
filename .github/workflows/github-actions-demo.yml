@@ -1,7 +1,7 @@
 name: building, linting, testing
 on: 
   push:
-    branches: [ master, module4 ]
+    branches: [ master, module5 ]
   pull_request:
     branches: [ master ]
 
