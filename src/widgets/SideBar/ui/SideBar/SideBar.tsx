@@ -7,6 +7,7 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import HomeIcon from 'shared/assets/icons/home-svgrepo-com.svg';
 import AboutIcon from 'shared/assets/icons/about-svgrepo-com.svg';
+import ProfileIcon from 'shared/assets/icons/person-male-svgrepo-com.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './SideBar.module.scss';
 
@@ -37,6 +38,10 @@ const SideBar: FC<SideBarProps> = ({ className }: SideBarProps) => {
                 <AppLink to={RoutePath.about} className={cls.link}>
                     <AboutIcon className={classNames(cls.icon, {}, [])} />
                     {!collapsed && <span>{t('about')}</span>}
+                </AppLink>
+                <AppLink to={RoutePath.profile} className={cls.link}>
+                    <ProfileIcon className={classNames(cls.icon, {}, [])} />
+                    {!collapsed && <span>{t('profile')}</span>}
                 </AppLink>
             </div>
             <div className={cls.switchers}>
