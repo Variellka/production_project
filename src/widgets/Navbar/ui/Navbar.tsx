@@ -1,5 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useCallback, useEffect, useState } from 'react';
+import {
+    memo, useCallback, useEffect, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import LogInIcon from 'shared/assets/icons/person-male-svgrepo-com.svg';
@@ -12,7 +14,7 @@ interface NavbarProps {
   className?: string
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const userAuthData = useSelector(getUserAuthData);
@@ -61,4 +63,4 @@ export const Navbar = ({ className }: NavbarProps) => {
             </Button>
         </div>
     );
-};
+});
