@@ -1,4 +1,4 @@
-import { memo, type FC } from 'react';
+import { memo } from 'react';
 import { type LinkProps } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { NavLink } from 'react-router-dom';

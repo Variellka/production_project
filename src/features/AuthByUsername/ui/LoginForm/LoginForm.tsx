@@ -47,7 +47,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
-                <Text className={cls.title} title={t('Authorization')} />
+                <Text className={cls.title} title={t('authorization')} />
                 {error && <Text text={error} theme={TextTheme.ERROR} />}
                 <Input
                     placeholder={`${t('username')}:`}

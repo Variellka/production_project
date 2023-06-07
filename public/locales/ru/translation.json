@@ -10,6 +10,8 @@
   "make an error": "сделать ошибку",
   "reload page": "перезагрузить страницу",
   "log in": "войти",
+  "log out": "выйти",
   "username": "пользователь",
-  "password": "пароль"
+  "password": "пароль",
+  "authorization": "авторизация"
 }
