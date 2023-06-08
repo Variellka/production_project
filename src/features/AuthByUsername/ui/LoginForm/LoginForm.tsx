@@ -67,7 +67,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
                 {!isLoading && (
                     <Button
                         className={cls.button}
-                        theme={ThemeButton.MODAL}
+                        theme={ThemeButton.FILLED}
                         onClick={onLoginClick}
                         disabled={isLoading}
                     >

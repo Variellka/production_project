@@ -7,7 +7,7 @@ export enum ThemeButton {
   CLEAR_INVERTED = 'clear-inverted',
   PAGE_ERROR = 'page-error',
   SIDEBAR = 'sideBar',
-  MODAL = 'modal'
+  FILLED = 'filled'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
