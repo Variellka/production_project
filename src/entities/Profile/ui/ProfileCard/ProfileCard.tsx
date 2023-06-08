@@ -19,8 +19,16 @@ const ProfileCard = () => {
             {profileError && <Text text={profileError} theme={TextTheme.ERROR} />}
             {!profileError && (
                 <div className={cls.profileData}>
-                    <Input value={profileData?.firstname} placeholder={t('your name:')} />
-                    <Input value={profileData?.lastname} placeholder={t('your lastname:')} />
+                    <Input
+                        value={profileData?.firstname}
+                        placeholder={t('your name:')}
+                        className={cls.input}
+                    />
+                    <Input
+                        value={profileData?.lastname}
+                        placeholder={t('your lastname:')}
+                        className={cls.input}
+                    />
                     <Button theme={ThemeButton.FILLED}>{t('edit')}</Button>
                 </div>
             )}
