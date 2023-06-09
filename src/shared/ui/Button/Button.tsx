@@ -1,4 +1,4 @@
-import { FC, type ButtonHTMLAttributes } from 'react';
+import { FC, type ButtonHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
 
@@ -7,7 +7,7 @@ export enum ThemeButton {
   CLEAR_INVERTED = 'clear-inverted',
   PAGE_ERROR = 'page-error',
   SIDEBAR = 'sideBar',
-  MODAL = 'modal'
+  FILLED = 'filled'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,9 +15,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ThemeButton;
 }
 
-export const Button:FC<ButtonProps> = (props: ButtonProps) => {
+export const Button:FC<ButtonProps> = memo((props: ButtonProps) => {
     const {
-        theme, className, children, ...otherProps
+        theme = ThemeButton.FILLED, className, children, ...otherProps
     } = props;
 
     return (
@@ -29,4 +29,4 @@ export const Button:FC<ButtonProps> = (props: ButtonProps) => {
             {children}
         </button>
     );
-};
+});

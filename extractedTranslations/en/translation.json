@@ -1,8 +1,9 @@
 {
-  "Authorization": "",
   "about": "",
   "about page": "",
+  "authorization": "",
   "decrement": "",
+  "edit": "",
   "hello": "",
   "increment": "",
   "language": "",
@@ -14,6 +15,9 @@
   "menu": "",
   "page not found": "",
   "password": "",
+  "profile": "",
+  "profile card": "",
+  "profile page": "",
   "reload page": "",
   "unknown error": "",
   "username": ""

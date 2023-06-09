@@ -8,6 +8,7 @@ export function buildPlugins({
     paths,
     isDev,
     analyze,
+    apiURL,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({
@@ -20,6 +21,7 @@ export function buildPlugins({
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiURL),
         }),
         new BundleAnalyzerPlugin({
             analyzerMode: analyze ? 'server' : 'disabled',

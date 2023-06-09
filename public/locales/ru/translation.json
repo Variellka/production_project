@@ -4,11 +4,14 @@
   "menu": "меню",
   "main": "главная",
   "about": "о нас",
+  "profile": "профиль", 
   "page not found": "страница не найдена",
   "unknown error": "что-то пошло не так...",
   "make an error": "сделать ошибку",
   "reload page": "перезагрузить страницу",
   "log in": "войти",
+  "log out": "выйти",
   "username": "пользователь",
-  "password": "пароль"
+  "password": "пароль",
+  "authorization": "авторизация"
 }

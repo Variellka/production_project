@@ -4,11 +4,14 @@
   "menu": "menu",
   "main": "main",
   "about": "about",
+  "profile": "profile", 
   "page not found": "page not found",
   "unknown error": "something went wrong...",
   "make an error": "make an error",
   "reload page": "reload page",
   "log in" : "log in",
+  "log out": "log out",
   "username": "username",
-  "password": "password"
+  "password": "password",
+  "authorization": "authorization"
 }
