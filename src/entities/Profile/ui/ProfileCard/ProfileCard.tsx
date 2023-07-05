@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import Input from 'shared/ui/Input/Input';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Loader from 'shared/ui/Loader/Loader';
 import { ProfileType } from 'entities/Profile/model/types/profile';
@@ -10,12 +9,15 @@ import cls from './ProfileCard.module.scss';
 interface ProfileCardProps {
     data?: ProfileType,
     error?:string,
-    isLoading?: boolean
+    isLoading?: boolean,
+    readonly?: boolean
 }
 
 const ProfileCard = (props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
-    const { data, error, isLoading } = props;
+    const {
+        data, error, isLoading, readonly,
+    } = props;
 
     if (error) {
         return (
@@ -35,19 +37,19 @@ const ProfileCard = (props: ProfileCardProps) => {
 
     return (
         <div className={classNames(cls.ProfileCard, {}, [])}>
-            <Text title={t('profile card')} />
             <div className={cls.profileData}>
                 <Input
                     value={data?.firstname}
                     placeholder={t('your name:')}
                     className={cls.input}
+                    readonly={readonly}
                 />
                 <Input
                     value={data?.lastname}
                     placeholder={t('your lastname:')}
                     className={cls.input}
+                    readonly={readonly}
                 />
-                <Button theme={ThemeButton.FILLED}>{t('edit')}</Button>
             </div>
         </div>
     );

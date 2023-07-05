@@ -1,5 +1,6 @@
 .InputWrapper {
     display: flex;
+    text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
 }
 
 .input {
@@ -14,4 +15,10 @@
 .placeholder {
     color: var(--secondary-color);
     width: 40%;
+}
+
+.readonly {
+    input {
+        opacity: 0.7;
+    }
 }
