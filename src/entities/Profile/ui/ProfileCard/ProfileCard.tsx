@@ -1,37 +1,54 @@
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import Text, { TextTheme } from 'shared/ui/Text/Text';
+import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import Input from 'shared/ui/Input/Input';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import Loader from 'shared/ui/Loader/Loader';
+import { ProfileType } from 'entities/Profile/model/types/profile';
 import cls from './ProfileCard.module.scss';
 
-const ProfileCard = () => {
+interface ProfileCardProps {
+    data?: ProfileType,
+    error?:string,
+    isLoading?: boolean
+}
+
+const ProfileCard = (props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
-    const profileData = useSelector(getProfileData);
-    const profileError = useSelector(getProfileError);
+    const { data, error, isLoading } = props;
+
+    if (error) {
+        return (
+            <div className={classNames(cls.ProfileCard, {}, [])}>
+                <Text text={error} theme={TextTheme.ERROR} align={TextAlign.CENTER} />
+            </div>
+        );
+    }
+
+    if (isLoading) {
+        return (
+            <div className={classNames(cls.ProfileCard, {}, [cls.loading])}>
+                <Loader />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(cls.ProfileCard, {}, [])}>
             <Text title={t('profile card')} />
-            {profileError && <Text text={profileError} theme={TextTheme.ERROR} />}
-            {!profileError && (
-                <div className={cls.profileData}>
-                    <Input
-                        value={profileData?.firstname}
-                        placeholder={t('your name:')}
-                        className={cls.input}
-                    />
-                    <Input
-                        value={profileData?.lastname}
-                        placeholder={t('your lastname:')}
-                        className={cls.input}
-                    />
-                    <Button theme={ThemeButton.FILLED}>{t('edit')}</Button>
-                </div>
-            )}
+            <div className={cls.profileData}>
+                <Input
+                    value={data?.firstname}
+                    placeholder={t('your name:')}
+                    className={cls.input}
+                />
+                <Input
+                    value={data?.lastname}
+                    placeholder={t('your lastname:')}
+                    className={cls.input}
+                />
+                <Button theme={ThemeButton.FILLED}>{t('edit')}</Button>
+            </div>
         </div>
     );
 };

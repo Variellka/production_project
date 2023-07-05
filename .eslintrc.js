@@ -42,7 +42,7 @@ module.exports = {
         'linebreak-style': ['error', process.platform === 'win32' ? 'windows' : 'unix'],
         'max-len': ['error', {
             ignoreComments: true,
-            code: 100,
+            code: 110,
         }],
         'jsx-a11y/click-events-have-key-events': 'off',
         'jsx-a11y/no-static-element-interactions': 'off',
