@@ -18,7 +18,7 @@ const ProfilePageHeader = () => {
     }, [dispatch]);
 
     const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(true));
+        dispatch(profileActions.cancelEdit());
     }, [dispatch]);
 
     return (
@@ -33,12 +33,20 @@ const ProfilePageHeader = () => {
                 </Button>
             )}
             {!profileReadonly && (
-                <Button
-                    theme={ThemeButton.FILLED}
-                    onClick={onCancelEdit}
-                >
-                    {t('cancel')}
-                </Button>
+                <div className={cls.profileButtonsWrapper}>
+                    <Button
+                        theme={ThemeButton.FILLED}
+                    >
+                        {t('save')}
+                    </Button>
+                    <Button
+                        theme={ThemeButton.FILLED_ALERT}
+                        onClick={onCancelEdit}
+                    >
+                        {t('cancel')}
+                    </Button>
+                </div>
+
             )}
         </div>
     );

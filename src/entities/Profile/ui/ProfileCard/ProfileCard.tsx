@@ -10,13 +10,16 @@ interface ProfileCardProps {
     data?: ProfileType,
     error?:string,
     isLoading?: boolean,
-    readonly?: boolean
+    readonly?: boolean,
+    onChangeFirstname?: (value: string) => void,
+    onChangeLastname?: (value: string) => void
+
 }
 
 const ProfileCard = (props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
     const {
-        data, error, isLoading, readonly,
+        data, error, isLoading, readonly, onChangeFirstname, onChangeLastname,
     } = props;
 
     if (error) {
@@ -40,15 +43,45 @@ const ProfileCard = (props: ProfileCardProps) => {
             <div className={cls.profileData}>
                 <Input
                     value={data?.firstname}
-                    placeholder={t('your name:')}
+                    placeholder={t('name:')}
                     className={cls.input}
                     readonly={readonly}
+                    onChange={onChangeFirstname}
                 />
                 <Input
                     value={data?.lastname}
-                    placeholder={t('your lastname:')}
+                    placeholder={t('lastname:')}
                     className={cls.input}
                     readonly={readonly}
+                    onChange={onChangeLastname}
+                />
+                <Input
+                    value={data?.age}
+                    placeholder={t('age:')}
+                    className={cls.input}
+                    readonly={readonly}
+                    onChange={onChangeLastname}
+                />
+                <Input
+                    value={data?.city}
+                    placeholder={t('city:')}
+                    className={cls.input}
+                    readonly={readonly}
+                    onChange={onChangeLastname}
+                />
+                <Input
+                    value={data?.country}
+                    placeholder={t('country:')}
+                    className={cls.input}
+                    readonly={readonly}
+                    onChange={onChangeLastname}
+                />
+                <Input
+                    value={data?.currency}
+                    placeholder={t('currency:')}
+                    className={cls.input}
+                    readonly={readonly}
+                    onChange={onChangeLastname}
                 />
             </div>
         </div>

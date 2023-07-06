@@ -13,7 +13,7 @@
 }
 
 .page-error {
-    background: #970841;
+    background: var(--alert-color);
     outline: none;
     border: none;
     display: flex;
@@ -38,7 +38,8 @@
     align-items: center;
 }
 
-.filled {
+.filled,
+.filled-alert {
     outline: none;
     border: none;
     border-radius: 15px;
@@ -48,4 +49,8 @@
     color: var(--bg-color);
     justify-content: center;
     align-items: center;
+}
+
+.filled-alert {
+    background: var(--alert-color);
 }

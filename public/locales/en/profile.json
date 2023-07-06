@@ -1,8 +1,12 @@
 {
     "profile page": "profile page",
     "profile card":"profile card",
-    "your name:": "your name:",
-    "your lastname:": "your lastname:",
+    "name:": "name:",
+    "lastname:": "lastname:",
+    "age:": "age:",
+    "city:": "city:",
+    "country:":"country:",
+    "currency:": "currency:",
     "edit": "edit"
   }
   
