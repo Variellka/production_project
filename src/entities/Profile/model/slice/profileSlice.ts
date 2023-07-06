@@ -20,7 +20,7 @@ export const profileSlice = createSlice({
         },
         updateProfile: (state, action: PayloadAction<ProfileType>) => {
             state.profileForm = {
-                ...state.profileData,
+                ...state.profileForm,
                 ...action.payload,
             };
         },

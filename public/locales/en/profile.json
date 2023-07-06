@@ -1,12 +1,12 @@
 {
     "profile page": "profile page",
     "profile card":"profile card",
-    "name:": "name:",
-    "lastname:": "lastname:",
-    "age:": "age:",
-    "city:": "city:",
-    "country:":"country:",
-    "currency:": "currency:",
+    "name": "name",
+    "lastname": "lastname",
+    "age": "age",
+    "city": "city",
+    "country":"country",
+    "currency": "currency",
     "edit": "edit"
   }
   

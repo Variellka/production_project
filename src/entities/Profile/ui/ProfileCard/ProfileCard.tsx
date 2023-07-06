@@ -43,45 +43,45 @@ const ProfileCard = (props: ProfileCardProps) => {
             <div className={cls.profileData}>
                 <Input
                     value={data?.firstname}
-                    placeholder={t('name:')}
+                    placeholder={`${t('name')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeFirstname}
                 />
                 <Input
                     value={data?.lastname}
-                    placeholder={t('lastname:')}
+                    placeholder={`${t('lastname')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeLastname}
                 />
                 <Input
                     value={data?.age}
-                    placeholder={t('age:')}
+                    placeholder={`${t('age')}:`}
                     className={cls.input}
                     readonly={readonly}
-                    onChange={onChangeLastname}
+                    onChange={}
                 />
                 <Input
                     value={data?.city}
-                    placeholder={t('city:')}
+                    placeholder={`${t('city')}:`}
                     className={cls.input}
                     readonly={readonly}
-                    onChange={onChangeLastname}
+                    onChange={}
                 />
                 <Input
                     value={data?.country}
-                    placeholder={t('country:')}
+                    placeholder={`${t('country')}:`}
                     className={cls.input}
                     readonly={readonly}
-                    onChange={onChangeLastname}
+                    onChange={}
                 />
                 <Input
                     value={data?.currency}
-                    placeholder={t('currency:')}
+                    placeholder={`${t('currency')}:`}
                     className={cls.input}
                     readonly={readonly}
-                    onChange={onChangeLastname}
+                    onChange={}
                 />
             </div>
         </div>
