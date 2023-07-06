@@ -12,14 +12,18 @@ interface ProfileCardProps {
     isLoading?: boolean,
     readonly?: boolean,
     onChangeFirstname?: (value: string) => void,
-    onChangeLastname?: (value: string) => void
-
+    onChangeLastname?: (value: string) => void,
+    onChangeAge?: (value: number) => void,
+    onChangeCity?: (value: string) => void,
+    onChangeCountry?: (value: string) => void,
+    onChangeCurrency?: (value: string) => void,
 }
 
 const ProfileCard = (props: ProfileCardProps) => {
     const { t } = useTranslation('profile');
     const {
         data, error, isLoading, readonly, onChangeFirstname, onChangeLastname,
+        onChangeAge, onChangeCity, onChangeCountry, onChangeCurrency,
     } = props;
 
     if (error) {
@@ -60,28 +64,29 @@ const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={`${t('age')}:`}
                     className={cls.input}
                     readonly={readonly}
-                    onChange={}
+                    onChange={onChangeAge}
+                    type="number"
                 />
                 <Input
                     value={data?.city}
                     placeholder={`${t('city')}:`}
                     className={cls.input}
                     readonly={readonly}
-                    onChange={}
+                    onChange={onChangeCity}
                 />
                 <Input
                     value={data?.country}
                     placeholder={`${t('country')}:`}
                     className={cls.input}
                     readonly={readonly}
-                    onChange={}
+                    onChange={onChangeCountry}
                 />
                 <Input
                     value={data?.currency}
                     placeholder={`${t('currency')}:`}
                     className={cls.input}
                     readonly={readonly}
-                    onChange={}
+                    onChange={onChangeCurrency}
                 />
             </div>
         </div>

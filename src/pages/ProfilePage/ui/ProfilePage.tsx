@@ -39,9 +39,25 @@ const ProfilePage = () => {
         dispatch(profileActions.updateProfile({ lastname: value }));
     }, [dispatch]);
 
+    const onChangeAge = useCallback((value: number) => {
+        dispatch(profileActions.updateProfile({ age: value }));
+    }, [dispatch]);
+
+    const onChangeCity = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({ city: value }));
+    }, [dispatch]);
+
+    // const onChangeCountry = useCallback((value: string) => {
+    //     dispatch(profileActions.updateProfile({ country: value }));
+    // }, [dispatch]);
+
+    // const onChangeCurrency = useCallback((value: string) => {
+    //     dispatch(profileActions.updateProfile({ currency: value }));
+    // }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            {!profileError && !profileIsLoading && <ProfilePageHeader />}
+            <ProfilePageHeader error={profileError} />
             <ProfileCard
                 data={profileForm}
                 error={profileError}
@@ -49,6 +65,10 @@ const ProfilePage = () => {
                 readonly={profileReadOnly}
                 onChangeFirstname={onChangeFirstname}
                 onChangeLastname={onChangeLastname}
+                onChangeAge={onChangeAge}
+                onChangeCity={onChangeCity}
+                // onChangeCountry={onChangeCountry}
+                // onChangeCurrency={onChangeCurrency}
             />
         </DynamicModuleLoader>
     );
