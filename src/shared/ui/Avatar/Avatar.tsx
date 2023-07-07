@@ -19,12 +19,13 @@ const Avatar = ({
         {
             width: size,
             height: size,
+            borderRadius: size,
         }
     ), [size]);
 
     return (
         <div className={classNames(cls.Avatar, {}, [className])} style={styles}>
-            <img alt="avatar" src={src || srcBase} />
+            <img alt="avatar" src={src || srcBase} style={{ borderRadius: styles.borderRadius }} />
         </div>
     );
 };

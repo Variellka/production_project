@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import Loader from 'shared/ui/Loader/Loader';
 import { ProfileType } from 'entities/Profile/model/types/profile';
 import Avatar from 'shared/ui/Avatar/Avatar';
+import Select from 'shared/ui/Select/Select';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -48,7 +49,7 @@ const ProfileCard = (props: ProfileCardProps) => {
     return (
         <div className={classNames(cls.ProfileCard, {}, [])}>
             <div className={cls.profileData}>
-                <Avatar src={data?.avatar} size={120} />
+                <Avatar src={data?.avatar} size={120} className={cls.profileAvatar} />
                 <Input
                     value={data?.username}
                     placeholder={`${t('username')}:`}
@@ -105,6 +106,15 @@ const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeAvatar}
+                />
+                <Select
+                    options={[
+                        { value: 'value1', content: 'content1' },
+                        { value: 'value2', content: 'content2' },
+                        { value: 'value3', content: 'content4' },
+                    ]}
+                    label="choose value:"
+                    value="value1"
                 />
             </div>
         </div>

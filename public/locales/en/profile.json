@@ -9,6 +9,8 @@
     "currency": "currency",
     "avatar": "avatar",
     "username": "username",
-    "edit": "edit"
+    "edit": "edit",
+    "save": "save",
+    "cancel": "cancel"
   }
   

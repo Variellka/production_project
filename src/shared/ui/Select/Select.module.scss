@@ -1,0 +1,17 @@
+.selectWrapper {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        width: 30%;
+        color: var(--secondary-color);
+    }
+
+    select {
+        width: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid;
+        margin-left: 8px;
+    }
+}
