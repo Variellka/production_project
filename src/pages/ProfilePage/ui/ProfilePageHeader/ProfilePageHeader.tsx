@@ -39,7 +39,7 @@ const ProfilePageHeader = ({ error } : ProfilePageHeaderProps) => {
 
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [])}>
-            <Text title={t('profile card')} />
+            <Text title={t('profile card')} className={cls.profileHeader} />
             {profileReadonly && (
                 <Button
                     theme={ThemeButton.FILLED}

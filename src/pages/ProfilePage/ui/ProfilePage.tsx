@@ -1,7 +1,6 @@
 import {
     ProfileCard,
     fetchProfileData,
-    getProfileData,
     getProfileError,
     getProfileForm,
     getProfileIsLoading,
@@ -55,6 +54,14 @@ const ProfilePage = () => {
     //     dispatch(profileActions.updateProfile({ currency: value }));
     // }, [dispatch]);
 
+    const onChangeUsername = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({ username: value }));
+    }, [dispatch]);
+
+    const onChangeAvatar = useCallback((value: string) => {
+        dispatch(profileActions.updateProfile({ avatar: value }));
+    }, [dispatch]);
+
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <ProfilePageHeader error={profileError} />
@@ -69,6 +76,8 @@ const ProfilePage = () => {
                 onChangeCity={onChangeCity}
                 // onChangeCountry={onChangeCountry}
                 // onChangeCurrency={onChangeCurrency}
+                onChangeUsername={onChangeUsername}
+                onChangeAvatar={onChangeAvatar}
             />
         </DynamicModuleLoader>
     );

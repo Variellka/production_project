@@ -7,6 +7,8 @@
     "city": "city",
     "country":"country",
     "currency": "currency",
+    "avatar": "avatar",
+    "username": "username",
     "edit": "edit"
   }
   
