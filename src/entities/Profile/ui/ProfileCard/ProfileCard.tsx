@@ -7,6 +7,7 @@ import { ProfileType } from 'entities/Profile/model/types/profile';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import Select from 'shared/ui/Select/Select';
 import { CurrencySelect } from 'entities/Currency';
+import { CountrySelect } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -80,15 +81,10 @@ const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeAge}
                     type="number"
                 />
-                <Select
-                    options={[
-                        { value: 'russia', content: 'russia' },
-                        { value: 'belarus', content: 'belarus' },
-                        { value: 'ukraine', content: 'ukraine' },
-                    ]}
-                    label={`${t('country')}:`}
+                <CountrySelect
                     value={data?.country}
                     readonly={readonly}
+                    onChange={onChangeCountry}
                 />
                 <Input
                     value={data?.city}

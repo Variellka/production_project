@@ -14,5 +14,6 @@
   "username": "пользователь",
   "password": "пароль",
   "authorization": "авторизация",
-  "currency": "валюта"
+  "currency": "валюта",
+  "country": "страна"
 }

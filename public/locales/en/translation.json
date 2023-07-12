@@ -14,5 +14,6 @@
   "username": "username",
   "password": "password",
   "authorization": "authorization",
-  "currency": "currency"
+  "currency": "currency",
+  "country": "country"
 }
