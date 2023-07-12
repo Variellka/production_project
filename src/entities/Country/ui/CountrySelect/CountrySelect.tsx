@@ -8,7 +8,7 @@ interface CountrySelectProps {
     className?: string,
     value?: Country,
     readonly?: boolean,
-    onChange?: (value: string) => void;
+    onChange?: (value: Country) => void;
 }
 
 const CountrySelect = memo((props: CountrySelectProps) => {

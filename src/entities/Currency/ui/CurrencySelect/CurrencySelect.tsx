@@ -8,7 +8,7 @@ interface CurrencySelectProps {
     className?: string,
     value?: Currency,
     readonly?: boolean,
-    onChange?: (value: string) => void;
+    onChange?: (value: Currency) => void;
 }
 
 const CurrencySelect = memo((props: CurrencySelectProps) => {

@@ -5,9 +5,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import Loader from 'shared/ui/Loader/Loader';
 import { ProfileType } from 'entities/Profile/model/types/profile';
 import Avatar from 'shared/ui/Avatar/Avatar';
-import Select from 'shared/ui/Select/Select';
-import { CurrencySelect } from 'entities/Currency';
-import { CountrySelect } from 'entities/Country';
+import { Currency, CurrencySelect } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -19,8 +18,8 @@ interface ProfileCardProps {
     onChangeLastname?: (value: string) => void,
     onChangeAge?: (value: number) => void,
     onChangeCity?: (value: string) => void,
-    onChangeCountry?: (value: string) => void,
-    onChangeCurrency?: (value: string) => void,
+    onChangeCountry?: (value: Country) => void,
+    onChangeCurrency?: (value: Currency) => void,
     onChangeUsername?: (value: string) => void,
     onChangeAvatar?: (value: string) => void,
 }

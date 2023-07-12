@@ -48,12 +48,12 @@ const ProfilePage = () => {
         dispatch(profileActions.updateProfile({ city: value }));
     }, [dispatch]);
 
-    const onChangeCountry = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ country: value as Country }));
+    const onChangeCountry = useCallback((country: Country) => {
+        dispatch(profileActions.updateProfile({ country }));
     }, [dispatch]);
 
-    const onChangeCurrency = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ currency: value as Currency }));
+    const onChangeCurrency = useCallback((currency: Currency) => {
+        dispatch(profileActions.updateProfile({ currency }));
     }, [dispatch]);
 
     const onChangeUsername = useCallback((value: string) => {
