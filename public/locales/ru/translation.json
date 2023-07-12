@@ -13,5 +13,6 @@
   "log out": "выйти",
   "username": "пользователь",
   "password": "пароль",
-  "authorization": "авторизация"
+  "authorization": "авторизация",
+  "currency": "валюта"
 }

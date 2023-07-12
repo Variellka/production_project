@@ -6,6 +6,7 @@ import Loader from 'shared/ui/Loader/Loader';
 import { ProfileType } from 'entities/Profile/model/types/profile';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import Select from 'shared/ui/Select/Select';
+import { CurrencySelect } from 'entities/Currency';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -79,6 +80,16 @@ const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeAge}
                     type="number"
                 />
+                <Select
+                    options={[
+                        { value: 'russia', content: 'russia' },
+                        { value: 'belarus', content: 'belarus' },
+                        { value: 'ukraine', content: 'ukraine' },
+                    ]}
+                    label={`${t('country')}:`}
+                    value={data?.country}
+                    readonly={readonly}
+                />
                 <Input
                     value={data?.city}
                     placeholder={`${t('city')}:`}
@@ -87,34 +98,16 @@ const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeCity}
                 />
                 <Input
-                    value={data?.country}
-                    placeholder={`${t('country')}:`}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onChangeCountry}
-                />
-                <Input
-                    value={data?.currency}
-                    placeholder={`${t('currency')}:`}
-                    className={cls.input}
-                    readonly={readonly}
-                    onChange={onChangeCurrency}
-                />
-                <Input
                     value={data?.avatar}
                     placeholder={`${t('avatar')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeAvatar}
                 />
-                <Select
-                    options={[
-                        { value: 'value1', content: 'content1' },
-                        { value: 'value2', content: 'content2' },
-                        { value: 'value3', content: 'content4' },
-                    ]}
-                    label="choose value:"
-                    value="value1"
+                <CurrencySelect
+                    value={data?.currency}
+                    readonly={readonly}
+                    onChange={onChangeCurrency}
                 />
             </div>
         </div>

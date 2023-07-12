@@ -13,5 +13,6 @@
   "log out": "log out",
   "username": "username",
   "password": "password",
-  "authorization": "authorization"
+  "authorization": "authorization",
+  "currency": "currency"
 }
