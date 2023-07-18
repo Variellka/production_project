@@ -2,12 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import Text from 'shared/ui/Text/Text';
-import {
-    ProfileType, getProfileReadonly, profileActions, updateProfileData,
-} from 'entities/Profile';
 import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { getProfileReadonly, profileActions, updateProfileData } from 'features/EditableProfileCard';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -70,6 +68,3 @@ const ProfilePageHeader = ({ error } : ProfilePageHeaderProps) => {
 };
 
 export default ProfilePageHeader;
-function updateProfile(profileForm: ProfileType): any {
-    throw new Error('Function not implemented.');
-}
