@@ -15,6 +15,7 @@ import DynamicModuleLoader, { ReducerList }
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { getUserAuthData } from 'entities/User';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducerList = {
@@ -27,10 +28,13 @@ const ProfilePage = () => {
     const profileError = useSelector(getProfileError);
     const profileIsLoading = useSelector(getProfileIsLoading);
     const profileReadOnly = useSelector(getProfileReadonly);
+    const isAuth = useSelector(getUserAuthData);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+        if (isAuth) {
+            dispatch(fetchProfileData());
+        }
+    }, [dispatch, isAuth]);
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ firstname: value }));
