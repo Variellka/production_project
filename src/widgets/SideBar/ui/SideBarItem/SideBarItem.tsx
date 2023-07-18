@@ -14,11 +14,11 @@ interface SideBarItemProps {
 
 const SideBarItem = memo(({ item, collapsed }: SideBarItemProps) => {
     const { t } = useTranslation();
-    const isAuth = useSelector(getUserAuthData);
+    // const isAuth = useSelector(getUserAuthData);
 
-    if (!isAuth && item.iaAuth) {
-        return null;
-    }
+    // if (!isAuth && item.isAuth) {
+    //     return null;
+    // }
 
     return (
         <AppLink theme={AppLinkTheme.PRIMARY} to={item.path} className={cls.link}>
