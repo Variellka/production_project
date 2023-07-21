@@ -7,9 +7,12 @@ import { getProfileError } from './model/selectors/getProfileError/getProfileErr
 import { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getProfileLoading';
 import { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 import { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
+import { getValidateProfileErrors }
+    from './model/selectors/getValidateProfileErrors/getValidateProfileErrors';
 
 export {
     profileActions, profileReducer, EditableProfileCard,
     fetchProfileData, updateProfileData,
     getProfileData, getProfileError, getProfileIsLoading, getProfileReadonly, getProfileForm,
+    getValidateProfileErrors,
 };

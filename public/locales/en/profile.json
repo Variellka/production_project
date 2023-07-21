@@ -11,6 +11,10 @@
     "username": "username",
     "edit": "edit",
     "save": "save",
-    "cancel": "cancel"
+    "cancel": "cancel",
+    "INCORRECT_AGE": "INCORRECT_AGE",
+    "INCORRECT_USER_DATA": "INCORRECT_USER_DATA",
+    "NO_DATA": "NO_DATA",
+    "SERVER_ERROR": "SERVER_ERROR"
   }
   

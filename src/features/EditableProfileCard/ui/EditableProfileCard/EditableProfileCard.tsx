@@ -2,7 +2,12 @@ import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
 import {
-    getProfileError, getProfileForm, getProfileIsLoading, getProfileReadonly, profileActions,
+    getProfileError,
+    getProfileForm,
+    getProfileIsLoading,
+    getProfileReadonly,
+    getValidateProfileErrors,
+    profileActions,
 } from 'features/EditableProfileCard';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -14,6 +19,7 @@ const EditableProfileCard = memo(() => {
     const profileError = useSelector(getProfileError);
     const profileIsLoading = useSelector(getProfileIsLoading);
     const profileReadOnly = useSelector(getProfileReadonly);
+    const validateProfileErrors = useSelector(getValidateProfileErrors);
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ firstname: value }));
@@ -51,6 +57,7 @@ const EditableProfileCard = memo(() => {
         <ProfileCard
             data={profileForm}
             error={profileError}
+            validateProfileErrors={validateProfileErrors}
             isLoading={profileIsLoading}
             readonly={profileReadOnly}
             onChangeFirstname={onChangeFirstname}
@@ -62,6 +69,7 @@ const EditableProfileCard = memo(() => {
             onChangeUsername={onChangeUsername}
             onChangeAvatar={onChangeAvatar}
         />
+
     );
 });
 

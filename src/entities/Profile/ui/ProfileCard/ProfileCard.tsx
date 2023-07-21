@@ -3,15 +3,16 @@ import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import Input from 'shared/ui/Input/Input';
 import { classNames } from 'shared/lib/classNames/classNames';
 import Loader from 'shared/ui/Loader/Loader';
-import { ProfileType } from 'entities/Profile/model/types/profile';
+import { Profile, ValidateProfileError } from 'entities/Profile/model/types/profile';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
-    data?: ProfileType,
+    data?: Profile,
     error?:string,
+    validateProfileErrors: ValidateProfileError[] | undefined,
     isLoading?: boolean,
     readonly?: boolean,
     onChangeFirstname?: (value: string) => void,
@@ -29,7 +30,15 @@ const ProfileCard = (props: ProfileCardProps) => {
     const {
         data, error, isLoading, readonly, onChangeFirstname, onChangeLastname,
         onChangeAge, onChangeCity, onChangeCountry, onChangeCurrency, onChangeUsername, onChangeAvatar,
+        validateProfileErrors,
     } = props;
+
+    const validateErrorsTranslate = {
+        [ValidateProfileError.INCORRECT_AGE]: t('INCORRECT_AGE'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('INCORRECT_USER_DATA'),
+        [ValidateProfileError.NO_DATA]: t('NO_DATA'),
+        [ValidateProfileError.SERVER_ERROR]: t('SERVER_ERROR'),
+    };
 
     if (error) {
         return (
@@ -51,6 +60,11 @@ const ProfileCard = (props: ProfileCardProps) => {
         <div className={classNames(cls.ProfileCard, {}, [])}>
             <div className={cls.profileData}>
                 <Avatar src={data?.avatar} size={120} className={cls.profileAvatar} />
+                <div className={cls.validateErrorsWrapper}>
+                    {validateProfileErrors?.length && validateProfileErrors.map((error) => (
+                        <Text text={validateErrorsTranslate[error]} key={error} theme={TextTheme.ERROR} />
+                    ))}
+                </div>
                 <Input
                     value={data?.username}
                     placeholder={`${t('username')}:`}
