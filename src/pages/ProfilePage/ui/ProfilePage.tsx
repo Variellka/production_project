@@ -19,7 +19,7 @@ const ProfilePage = () => {
     const isAuth = useSelector(getUserAuthData);
 
     useEffect(() => {
-        if (isAuth) {
+        if (isAuth && __PROJECT__ !== 'storybook') {
             dispatch(fetchProfileData());
         }
     }, [dispatch, isAuth]);
