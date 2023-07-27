@@ -40,3 +40,7 @@ Dark.decorators = [
         },
     }),
 ];
+
+export const LightNoAuth = Template.bind({});
+LightNoAuth.args = {};
+LightNoAuth.decorators = [StoreDecorator({})];
