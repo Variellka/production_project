@@ -1,8 +1,6 @@
-import { ProfileSchema, ProfileType } from './model/types/profile';
-import { profileActions, profileReducer } from './model/slice/profileSlice';
-import { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
+import { ProfileSchema, Profile, ValidateProfileError } from './model/types/profile';
 import ProfileCard from './ui/ProfileCard/ProfileCard';
 
 export {
-    ProfileSchema, ProfileType, profileActions, profileReducer, ProfileCard, fetchProfileData,
+    ProfileSchema, Profile, ProfileCard, ValidateProfileError,
 };

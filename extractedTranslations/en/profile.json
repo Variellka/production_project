@@ -1,5 +1,19 @@
 {
+  "INCORRECT_AGE": "",
+  "INCORRECT_USER_DATA": "",
+  "NO_DATA": "",
+  "SERVER_ERROR": "",
+  "age": "",
+  "avatar": "",
+  "cancel": "",
+  "city": "",
+  "country": "",
+  "currency": "",
   "edit": "",
+  "lastname": "",
+  "name": "",
   "profile card": "",
-  "profile page": ""
+  "profile page": "",
+  "save": "",
+  "username": ""
 }

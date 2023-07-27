@@ -15,7 +15,8 @@ export interface BuildOptions {
   isDev: boolean
   port: number,
   analyze: boolean,
-  apiURL: string
+  apiURL: string,
+  project: 'storybook' | 'frontend' | 'jest'
 }
 
 export interface BuildEnv {

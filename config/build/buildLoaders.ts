@@ -1,6 +1,7 @@
 import type webpack from 'webpack';
 import { type BuildOptions } from './types/config';
-import { buildCssLoaders } from './loaders/buildCssLoaders';
+import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildbabelLoader } from './loaders/buildbabelLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const typescriptLoader = {
@@ -14,16 +15,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         use: ['@svgr/webpack'],
     };
 
-    const babelLoader = {
-        test: /\.(js|jsx|tsx)$/,
-        exclude: /node_modules/,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                presets: ['@babel/preset-env'],
-            },
-        },
-    };
+    const babelLoader = buildbabelLoader(options.isDev);
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -34,7 +26,7 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         ],
     };
 
-    const cssLoader = buildCssLoaders(options.isDev);
+    const cssLoader = buildCssLoader(options.isDev);
 
     return [babelLoader, typescriptLoader, cssLoader, svgLoader, fileLoader];
 }

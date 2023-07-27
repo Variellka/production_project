@@ -1,16 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { Mods, classNames } from 'shared/lib/classNames/classNames';
 import React, {
-    InputHTMLAttributes, memo, useEffect, useState,
+    InputHTMLAttributes, memo,
 } from 'react';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
     className? : string,
-    value? : string,
-    onChange? : (value: string) => void,
-    autoFocus?: boolean
+    value? : string | number,
+    onChange? : (value: any) => void,
+    autoFocus?: boolean,
+    readonly?: boolean
 }
 
 const Input = memo((props: InputProps) => {
@@ -21,6 +22,7 @@ const Input = memo((props: InputProps) => {
         type = 'text',
         placeholder,
         autoFocus,
+        readonly,
         ...otherProps
     } = props;
 
@@ -28,9 +30,13 @@ const Input = memo((props: InputProps) => {
         onChange?.(e.target.value);
     };
 
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    };
+
     return (
         <div
-            className={classNames(cls.InputWrapper, {}, [className])}
+            className={classNames(cls.InputWrapper, mods, [className])}
         >
             {placeholder && <div className={cls.placeholder}>{placeholder}</div>}
             <input
@@ -40,6 +46,7 @@ const Input = memo((props: InputProps) => {
                 type={type}
                 // eslint-disable-next-line jsx-a11y/no-autofocus
                 autoFocus={autoFocus}
+                readOnly={readonly}
                 {...otherProps}
             />
         </div>

@@ -7,7 +7,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { SideBarItemsList } from 'widgets/SideBar/model/items';
 import cls from './SideBar.module.scss';
-import SideBarItem from './SideBarItem/SideBarItem';
+import SideBarItem from '../SideBarItem/SideBarItem';
 
 interface SideBarProps {
   className?: string

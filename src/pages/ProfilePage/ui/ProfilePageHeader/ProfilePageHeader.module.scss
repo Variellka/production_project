@@ -1,0 +1,18 @@
+.ProfilePageHeader {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.profileButtonsWrapper {
+    display: flex;
+
+    button {
+        margin-left: 15px;
+    }
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+}
