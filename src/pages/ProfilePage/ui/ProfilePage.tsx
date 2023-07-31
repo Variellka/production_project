@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader, { ReducerList }
     from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -32,4 +32,4 @@ const ProfilePage = () => {
     );
 };
 
-export default ProfilePage;
+export default memo(ProfilePage);
