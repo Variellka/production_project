@@ -1,4 +1,5 @@
 {
+  "ArticleDetails": "",
   "INCORRECT_AGE": "",
   "INCORRECT_USER_DATA": "",
   "NO_DATA": "",
@@ -7,6 +8,8 @@
   "about page": "",
   "age": "",
   "article detailed page": "",
+  "article is not found": "",
+  "article was not found": "",
   "articles page": "",
   "authorization": "",
   "avatar": "",
@@ -27,6 +30,7 @@
   "make an error": "",
   "menu": "",
   "name": "",
+  "no article with such id": "",
   "page not found": "",
   "password": "",
   "profile": "",
