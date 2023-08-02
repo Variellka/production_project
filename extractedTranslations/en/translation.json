@@ -4,9 +4,11 @@
   "INCORRECT_USER_DATA": "",
   "NO_DATA": "",
   "SERVER_ERROR": "",
+  "Something went wrong": "",
   "about": "",
   "about page": "",
   "age": "",
+  "an error occurred while loading the article": "",
   "article detailed page": "",
   "article is not found": "",
   "article was not found": "",
@@ -38,6 +40,9 @@
   "profile page": "",
   "reload page": "",
   "save": "",
+  "try to reload page": "",
+  "try to reload page or check if the link is correct": "",
+  "try to reload page or check if the link is correct ": "",
   "unknown error": "",
   "username": ""
 }

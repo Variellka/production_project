@@ -13,7 +13,8 @@ const Avatar = ({
     className,
     src,
     size = 120,
-    srcBase = 'https://pikuco.ru/upload/test_stable/1fd/1fd64968a32894062508cf131b7bb44d.webp',
+    // eslint-disable-next-line max-len
+    srcBase = 'https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png',
 }: AvatarProps) => {
     const styles = useMemo<CSSProperties>(() => (
         {

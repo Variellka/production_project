@@ -3,6 +3,7 @@
   "INCORRECT_USER_DATA": "",
   "NO_DATA": "",
   "SERVER_ERROR": "",
+  "Something went wrong": "",
   "age": "",
   "avatar": "",
   "cancel": "",
@@ -15,5 +16,6 @@
   "profile card": "",
   "profile page": "",
   "save": "",
+  "try to reload page": "",
   "username": ""
 }

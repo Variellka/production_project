@@ -17,15 +17,15 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...
 export const Primary = Template.bind({});
 Primary.args = {
     data: {
-        firstname: 'xenia',
+        firstname: 'alex',
         lastname: 'levchenko',
-        age: 28,
+        age: 30,
         currency: Currency.BYN,
         country: Country.Belarus,
         city: 'minsk',
-        username: 'admin',
+        username: 'user',
         // eslint-disable-next-line max-len
-        avatar: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg',
+        avatar: 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png',
     },
 };
 
@@ -40,7 +40,7 @@ PrimaryWithValidateErrors.args = {
         city: 'minsk',
         username: 'admin',
         // eslint-disable-next-line max-len
-        avatar: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg',
+        avatar: 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png',
     },
     validateProfileErrors: [
         ValidateProfileError.INCORRECT_USER_DATA,

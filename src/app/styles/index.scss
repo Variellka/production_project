@@ -20,4 +20,6 @@ body {
 .page-wrapper {
     padding: 10px;
     flex-grow: 1;
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
 }

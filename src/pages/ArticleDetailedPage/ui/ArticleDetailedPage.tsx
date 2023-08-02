@@ -8,13 +8,6 @@ const ArticleDetailedPage = () => {
     const { t } = useTranslation('articles');
     const { id } = useParams<{id: string}>();
 
-    if (!id) {
-        return (
-            <div>
-                <Text theme={TextTheme.ERROR} text={t('article is not found')} />
-            </div>
-        );
-    }
     return (
         <div><ArticleDetails id={id} /></div>
     );
