@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import Text, { TextTheme } from './Text';
+import Text, { TextAlign, TextSize, TextTheme } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -33,4 +33,36 @@ Error.args = {
     theme: TextTheme.ERROR,
     title: 'Title error',
     text: 'Error',
+};
+
+export const AlignCenter = Template.bind({});
+AlignCenter.args = {
+    mainTitle: 'Main Title',
+    title: 'Title',
+    text: 'text',
+    align: TextAlign.CENTER,
+};
+
+export const AlignRight = Template.bind({});
+AlignRight.args = {
+    mainTitle: 'Main Title',
+    title: 'Title',
+    text: 'text',
+    align: TextAlign.RIGHT,
+};
+
+export const SizeMedium = Template.bind({});
+SizeMedium.args = {
+    mainTitle: 'Main Title',
+    title: 'Title',
+    text: 'text',
+    size: TextSize.M,
+};
+
+export const SizeLarge = Template.bind({});
+SizeLarge.args = {
+    mainTitle: 'Main Title',
+    title: 'Title',
+    text: 'text',
+    size: TextSize.L,
 };

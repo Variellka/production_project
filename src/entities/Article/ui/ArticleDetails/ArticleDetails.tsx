@@ -5,9 +5,11 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
-import Loader from 'shared/ui/Loader/Loader';
-import Text, { TextTheme } from 'shared/ui/Text/Text';
+import Text, { TextSize, TextTheme } from 'shared/ui/Text/Text';
 import Skeleton from 'shared/ui/Skeleton/Skeleton';
+import Avatar from 'shared/ui/Avatar/Avatar';
+import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg';
+import CalendarIcon from 'shared/assets/icons/clarity_date-line.svg';
 import { articleReducer } from '../../model/slice/articleSlice';
 import {
     getArticleDetailsIsLoading,
@@ -15,6 +17,9 @@ import {
     getArticleDetailsError,
 } from '../../model/selectors/articleDetails';
 import cls from './ArticleDetails.module.scss';
+import ArticleTextBlock from '../ArticleTextBlock/ArticleTextBlock';
+import ArticleCodeBlock from '../ArticleCodeBlock/ArticleCodeBlock';
+import ArticleImageBlock from '../ArticleImageBlock/ArticleImageBlock';
 
 const initialReducers = {
     articleDetails: articleReducer,
@@ -28,7 +33,7 @@ interface ArticleDetailsProps {
 const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
     const { t } = useTranslation('articles');
     const dispatch = useAppDispatch();
-    const data = useSelector(getArticleDetailsData);
+    const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
     const isLoading = useSelector(getArticleDetailsIsLoading);
 
@@ -56,7 +61,35 @@ const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
             />
         );
     } else {
-        content = (<>{t('ArticleDetails')}</>);
+        content = (
+            <>
+                <Avatar src={article?.img} className={cls.avatar} size={200} />
+                <Text
+                    mainTitle={article?.title}
+                    title={article?.subtitle}
+                    size={TextSize.L}
+                    className={cls.title}
+                />
+                <div className={cls.articleInfoWrapper}>
+                    <div className={cls.articleInfo}>
+                        <EyeIcon />
+                        <Text text={article?.views.toString()} size={TextSize.M} />
+                    </div>
+                    <div className={cls.articleInfo}>
+                        <CalendarIcon />
+                        <Text text={article?.createdAt} size={TextSize.M} />
+                    </div>
+                </div>
+
+                {article?.blocks.map((block) => (
+                    <>
+                        {block.type === 'TEXT' && <ArticleTextBlock />}
+                        {block.type === 'CODE' && <ArticleCodeBlock />}
+                        {block.type === 'IMAGE' && <ArticleImageBlock />}
+                    </>
+                ))}
+            </>
+        );
     }
 
     return (

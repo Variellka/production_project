@@ -1,13 +1,11 @@
 .Text {
     .mainTitle {
         color: var(--secondary-color);
-        font: var(--font-l);
         font-weight: bold;
     }
 
     .title {
         color: var(--secondary-color);
-        font: var(--font-l);
         text-transform: uppercase;
     }
 }
@@ -17,7 +15,6 @@
 
     .title {
         color: var(--alert-color);
-        font: var(--font-l);
     }
 }
 
@@ -31,4 +28,32 @@
 
 .left {
     text-align: left;
+}
+
+.medium {
+    .mainTitle {
+        font: var(--font-l);
+    }
+
+    .title {
+        font: var(--font-m);
+    }
+
+    .text {
+        font: var(--font-m);
+    }
+}
+
+.large {
+    .mainTitle {
+        font: var(--font-xl);
+    }
+
+    .title {
+        font: var(--font-l);
+    }
+
+    .text {
+        font: var(--font-l);
+    }
 }

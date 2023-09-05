@@ -8,4 +8,17 @@
     .title {
         margin-bottom: 15px;
     }
+
+    .articleInfoWrapper {
+        margin: 10px 0;
+    }
+
+    .articleInfo {
+        display: flex;
+
+        svg {
+            fill: var(--primary-color);
+            margin-right: 5px;
+        }
+    }
 }
