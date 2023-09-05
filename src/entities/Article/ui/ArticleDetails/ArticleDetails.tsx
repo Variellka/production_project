@@ -10,6 +10,7 @@ import Skeleton from 'shared/ui/Skeleton/Skeleton';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg';
 import CalendarIcon from 'shared/assets/icons/clarity_date-line.svg';
+import Icon from 'shared/ui/Icon/Icon';
 import { articleReducer } from '../../model/slice/articleSlice';
 import {
     getArticleDetailsIsLoading,
@@ -72,11 +73,11 @@ const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
                 />
                 <div className={cls.articleInfoWrapper}>
                     <div className={cls.articleInfo}>
-                        <EyeIcon />
+                        <Icon Svg={EyeIcon} />
                         <Text text={article?.views.toString()} size={TextSize.M} />
                     </div>
                     <div className={cls.articleInfo}>
-                        <CalendarIcon />
+                        <Icon Svg={CalendarIcon} />
                         <Text text={article?.createdAt} size={TextSize.M} />
                     </div>
                 </div>
