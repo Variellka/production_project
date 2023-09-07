@@ -1,12 +1,17 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
+import Code from 'shared/ui/Code/Code';
+import { ArticleCodeBlock } from '../../model/types/article';
 
-const ArticleCodeBlockComponent = memo(() => {
-    const { t } = useTranslation('articles');
+interface ArticleCodeBlockComponentProps {
+    className?: string,
+    block: ArticleCodeBlock
+}
+
+const ArticleCodeBlockComponent = memo((props:ArticleCodeBlockComponentProps) => {
+    const { className, block } = props;
+
     return (
-        <div>
-            {t('ArticleCodeBlock')}
-        </div>
+        <Code className={className} text={block.code} />
     );
 });
 

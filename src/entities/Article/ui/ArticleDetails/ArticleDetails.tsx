@@ -40,17 +40,17 @@ const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
     const isLoading = useSelector(getArticleDetailsIsLoading);
 
     useEffect(() => {
-        if (id) dispatch(fetchArticleById(id));
+        if (__PROJECT__ !== 'storybook') dispatch(fetchArticleById(id!));
     }, [dispatch, id]);
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
         case ArticleBlockType.TEXT:
-            return <ArticleTextBlockComponent block={block} />;
+            return <ArticleTextBlockComponent key={block.id} block={block} />;
         case ArticleBlockType.IMAGE:
-            return <ArticleImageBlockComponent block={block} />;
+            return <ArticleImageBlockComponent key={block.id} block={block} />;
         case ArticleBlockType.CODE:
-            return <ArticleCodeBlockComponent />;
+            return <ArticleCodeBlockComponent key={block.id} block={block} />;
         default: return null;
         }
     }, []);
@@ -71,7 +71,7 @@ const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
             <Text
                 theme={TextTheme.ERROR}
                 title={t('an error occurred while loading the article')}
-                text={t('try to reload page or check if the link is correct')}
+                text={t('try reload page or check if the link is correct')}
             />
         );
     } else {
