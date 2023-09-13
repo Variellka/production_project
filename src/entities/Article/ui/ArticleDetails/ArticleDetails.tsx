@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { memo, useCallback, useEffect } from 'react';
+import { memo, useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchArticleById } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -12,6 +12,7 @@ import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg';
 import CalendarIcon from 'shared/assets/icons/clarity_date-line.svg';
 import Icon from 'shared/ui/Icon/Icon';
 import { ArticleBlock, ArticleBlockType } from 'entities/Article/model/types/article';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { articleReducer } from '../../model/slice/articleSlice';
 import {
     getArticleDetailsIsLoading,
@@ -39,9 +40,9 @@ const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
     const error = useSelector(getArticleDetailsError);
     const isLoading = useSelector(getArticleDetailsIsLoading);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') dispatch(fetchArticleById(id!));
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleById(id!));
+    }, [id]);
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
