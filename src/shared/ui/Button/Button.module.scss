@@ -1,3 +1,9 @@
+.Button {
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
 .clear,
 .clear-inverted {
     background: none;

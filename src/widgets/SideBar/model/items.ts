@@ -3,6 +3,7 @@ import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import HomeIcon from 'shared/assets/icons/home-svgrepo-com.svg';
 import AboutIcon from 'shared/assets/icons/about-svgrepo-com.svg';
 import ProfileIcon from 'shared/assets/icons/person-male-svgrepo-com.svg';
+import ArticlesIcon from 'shared/assets/icons/articles.svg';
 
 export interface SideBarItemType {
     path: string,
@@ -26,6 +27,12 @@ export const SideBarItemsList: SideBarItemType[] = [
         path: RoutePath.profile,
         text: 'profile',
         Icon: ProfileIcon,
+        isAuth: true,
+    },
+    {
+        path: RoutePath.articles,
+        text: 'articles',
+        Icon: ArticlesIcon,
         isAuth: true,
     },
 ];

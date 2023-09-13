@@ -29,7 +29,7 @@ Light.decorators = [StoreDecorator({
             city: 'minsk',
             username: 'admin',
             // eslint-disable-next-line max-len
-            avatar: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg',
+            avatar: 'https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png',
         },
     },
 })];
@@ -47,7 +47,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
             city: 'minsk',
             username: 'admin',
             // eslint-disable-next-line max-len
-            avatar: 'https://ichef.bbci.co.uk/news/640/cpsprodpb/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg',
+            avatar: 'https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png',
         },
     },
 })];

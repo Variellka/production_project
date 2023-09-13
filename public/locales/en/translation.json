@@ -15,5 +15,6 @@
   "password": "password",
   "authorization": "authorization",
   "currency": "currency",
-  "country": "country"
+  "country": "country",
+  "articles": "articles"
 }

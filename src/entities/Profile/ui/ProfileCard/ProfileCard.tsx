@@ -43,7 +43,12 @@ const ProfileCard = (props: ProfileCardProps) => {
     if (error) {
         return (
             <div className={classNames(cls.ProfileCard, {}, [])}>
-                <Text text={error} theme={TextTheme.ERROR} align={TextAlign.CENTER} />
+                <Text
+                    title={t('Something went wrong')}
+                    text={t('try to reload page')}
+                    theme={TextTheme.ERROR}
+                    align={TextAlign.CENTER}
+                />
             </div>
         );
     }

@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
-    memo, useCallback, useEffect, useState,
+    memo, useCallback, useState,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
@@ -8,6 +8,7 @@ import LogInIcon from 'shared/assets/icons/person-male-svgrepo-com.svg';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import Icon, { IconColor } from 'shared/ui/Icon/Icon';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -43,7 +44,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     type="button"
                     onClick={onOpenModal}
                 >
-                    <LogInIcon className={classNames(cls.icon, {}, [])} />
+                    <Icon Svg={LogInIcon} className={cls.icon} color={IconColor.BACKGROUND} />
                     {t('log in')}
                 </Button>
             </div>
@@ -58,7 +59,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 type="button"
                 onClick={onLogOut}
             >
-                <LogInIcon className={classNames(cls.icon, {}, [])} />
+                <Icon Svg={LogInIcon} className={cls.icon} color={IconColor.BACKGROUND} />
                 {t('log out')}
             </Button>
         </div>

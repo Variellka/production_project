@@ -15,5 +15,6 @@
   "password": "пароль",
   "authorization": "авторизация",
   "currency": "валюта",
-  "country": "страна"
+  "country": "страна",
+  "articles": "статьи"
 }
