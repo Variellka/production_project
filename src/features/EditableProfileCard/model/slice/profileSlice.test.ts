@@ -78,7 +78,7 @@ describe('profileSlice.test', () => {
             state as ProfileSchema,
             updateProfileData.fulfilled({
                 firstname: 'hanna',
-            }, ''),
+            }, '1', ''),
         )).toEqual({
             isLoading: false,
             profileData: { firstname: 'hanna' },

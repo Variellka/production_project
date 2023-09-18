@@ -6,6 +6,7 @@ import { useCallback } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { getProfileReadonly, profileActions, updateProfileData } from 'features/EditableProfileCard';
+import { useParams } from 'react-router-dom';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -16,6 +17,7 @@ const ProfilePageHeader = ({ error } : ProfilePageHeaderProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const profileReadonly = useSelector(getProfileReadonly);
+    const { id } = useParams<{id: string}>();
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
@@ -26,8 +28,10 @@ const ProfilePageHeader = ({ error } : ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     const onSave = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+        if (id) {
+            dispatch(updateProfileData(id));
+        }
+    }, [dispatch, id]);
 
     if (error) {
         return (
