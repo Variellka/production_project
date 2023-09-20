@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader, { ReducerList }
     from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';

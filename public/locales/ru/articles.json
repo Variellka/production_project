@@ -3,5 +3,6 @@
     "an error occurred while loading the article": "возникла ошибка при загрузке статьи",
     "article is not found": "статья не найдена",
     "articles page": "Статьи",
-    "try reload page or check if the link is correct": "попробуйте перезагрузить страницу или проверьте ссылку"
+    "try reload page or check if the link is correct": "попробуйте перезагрузить страницу или проверьте ссылку",
+    "comments": "комментарии"
 }

@@ -169,10 +169,16 @@
       "userId": "1"
     },
     {
-      "id": "3",
-      "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2",
+      "text": "yes",
+      "id": "YJMPPoK"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "kleba",
+      "id": "-U_H0vp"
     }
   ],
   "users": [
@@ -182,7 +188,6 @@
       "password": "123",
       "role": "ADMIN",
       "avatar": "https://png.pngtree.com/png-vector/20200615/ourmid/pngtree-hacker-wearing-hoodie-and-using-laptop-computer-freak-hacking-and-malware-png-image_2256760.jpg"
-
     },
     {
       "id": "2",
@@ -190,7 +195,6 @@
       "password": "123",
       "role": "USER",
       "avatar": "https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png"
-
     }
   ],
   "profile": [
@@ -203,11 +207,11 @@
       "country": "Belarus",
       "city": "minsk",
       "username": "admin",
-      "avatar": "https://w7.pngwing.com/pngs/129/292/png-transparent-female-avatar-girl-face-woman-user-flat-classy-users-icon.png"
+      "avatar": "https://png.pngtree.com/png-vector/20200615/ourmid/pngtree-hacker-wearing-hoodie-and-using-laptop-computer-freak-hacking-and-malware-png-image_2256760.jpg"
     },
     {
       "id": "2",
-      "firstname": "alexey",
+      "firstname": "alex",
       "lastname": "levchenko",
       "age": "30",
       "currency": "USD",

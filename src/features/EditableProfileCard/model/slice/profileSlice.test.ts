@@ -5,6 +5,7 @@ import { profileActions, profileReducer } from './profileSlice';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const data = {
+    id: '1',
     firstname: 'xenia',
     lastname: 'levchenko',
     age: 28,
@@ -47,9 +48,9 @@ describe('profileSlice.test', () => {
 
         expect(profileReducer(
             state as ProfileSchema,
-            profileActions.updateProfile({ firstname: 'hanna' }),
+            profileActions.updateProfile({ id: '1', firstname: 'hanna' }),
         )).toEqual({
-            profileForm: { firstname: 'hanna' },
+            profileForm: { id: '1', firstname: 'hanna' },
         });
     });
 
@@ -77,12 +78,13 @@ describe('profileSlice.test', () => {
         expect(profileReducer(
             state as ProfileSchema,
             updateProfileData.fulfilled({
+                id: '1',
                 firstname: 'hanna',
-            }, '1', ''),
+            }, ''),
         )).toEqual({
             isLoading: false,
-            profileData: { firstname: 'hanna' },
-            profileForm: { firstname: 'hanna' },
+            profileData: { id: '1', firstname: 'hanna' },
+            profileForm: { id: '1', firstname: 'hanna' },
             readonly: true,
             validateErrors: undefined,
         });

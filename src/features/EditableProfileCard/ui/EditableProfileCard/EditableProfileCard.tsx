@@ -11,6 +11,7 @@ import {
 } from 'features/EditableProfileCard';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 const EditableProfileCard = memo(() => {
@@ -20,38 +21,55 @@ const EditableProfileCard = memo(() => {
     const profileIsLoading = useSelector(getProfileIsLoading);
     const profileReadOnly = useSelector(getProfileReadonly);
     const validateProfileErrors = useSelector(getValidateProfileErrors);
+    const { id } = useParams<{id: string}>();
 
     const onChangeFirstname = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ firstname: value }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, firstname: value }));
+        }
+    }, [dispatch, id]);
 
     const onChangeLastname = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ lastname: value }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, lastname: value }));
+        }
+    }, [dispatch, id]);
 
     const onChangeAge = useCallback((value: number) => {
-        dispatch(profileActions.updateProfile({ age: value }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, age: value }));
+        }
+    }, [dispatch, id]);
 
     const onChangeCity = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ city: value }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, city: value }));
+        }
+    }, [dispatch, id]);
 
     const onChangeCountry = useCallback((country: Country) => {
-        dispatch(profileActions.updateProfile({ country }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, country }));
+        }
+    }, [dispatch, id]);
 
     const onChangeCurrency = useCallback((currency: Currency) => {
-        dispatch(profileActions.updateProfile({ currency }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, currency }));
+        }
+    }, [dispatch, id]);
 
     const onChangeUsername = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ username: value }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, username: value }));
+        }
+    }, [dispatch, id]);
 
     const onChangeAvatar = useCallback((value: string) => {
-        dispatch(profileActions.updateProfile({ avatar: value }));
-    }, [dispatch]);
+        if (id) {
+            dispatch(profileActions.updateProfile({ id, avatar: value }));
+        }
+    }, [dispatch, id]);
 
     return (
         <ProfileCard

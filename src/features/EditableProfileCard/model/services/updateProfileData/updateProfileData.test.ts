@@ -6,6 +6,7 @@ import { updateProfileData } from './updateProfileData';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 const data = {
+    id: '1',
     firstname: 'xenia',
     lastname: 'levchenko',
     age: 28,
@@ -27,7 +28,7 @@ describe('updateProfileData.test', () => {
             },
         });
         thunk.api.put.mockReturnValue(Promise.resolve({ data }));
-        const result = await thunk.callThunk('1');
+        const result = await thunk.callThunk();
         const errors = validateProfileData(data);
 
         expect(errors).toEqual([]);
@@ -61,7 +62,7 @@ describe('updateProfileData.test', () => {
             },
         });
         thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
-        const result = await thunk.callThunk('1');
+        const result = await thunk.callThunk();
 
         expect(thunk.api.put).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');

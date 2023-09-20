@@ -8,7 +8,6 @@
     border: none;
     border-bottom: 1px solid var(--primary-color);
     outline: none;
-    margin-left: 10px;
     text-overflow: ellipsis;
     width: 100%;
 }
@@ -16,6 +15,7 @@
 .placeholder {
     color: var(--secondary-color);
     width: 30%;
+    margin-right: 10px;
 }
 
 .readonly {

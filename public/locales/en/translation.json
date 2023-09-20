@@ -16,5 +16,7 @@
   "authorization": "authorization",
   "currency": "currency",
   "country": "country",
-  "articles": "articles"
+  "articles": "articles",
+  "send": "send",
+  "add comment": "add comment"
 }

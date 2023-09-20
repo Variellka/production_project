@@ -50,14 +50,14 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
                 <Text className={cls.title} title={t('authorization')} />
                 {error && <Text text={error} theme={TextTheme.ERROR} />}
                 <Input
-                    placeholder={`${t('username')}:`}
+                    placeholderExternal={`${t('username')}:`}
                     className={cls.input}
                     autoFocus
                     onChange={onChangeUserName}
                     value={username}
                 />
                 <Input
-                    placeholder={`${t('password')}:`}
+                    placeholderExternal={`${t('password')}:`}
                     className={cls.input}
                     type="password"
                     onChange={onChangePassword}

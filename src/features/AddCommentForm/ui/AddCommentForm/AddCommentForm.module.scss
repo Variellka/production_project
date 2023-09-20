@@ -1,0 +1,16 @@
+.AddCommentForm {
+    border: 1px solid var(--primary-color);
+    margin: 15px 0;
+    padding: 15px;
+
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .input {
+        margin-left: 0;
+        flex-grow: 1;
+        margin-right: 30px;
+    }
+}

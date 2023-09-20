@@ -15,11 +15,11 @@ const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    placeholder: 'password',
+    placeholderExternal: 'password',
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-    placeholder: 'password',
+    placeholderExternal: 'password',
 };
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
