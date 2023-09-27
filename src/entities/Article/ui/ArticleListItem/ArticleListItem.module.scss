@@ -1,0 +1,56 @@
+.card {
+    background-color: var(--card-bg-color);
+    width: 200px;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+        transform: scale(1.08);
+    }
+
+    .title p {
+        text-overflow: ellipsis;
+        width: 170px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .imageWrapper {
+        height: 180px;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: inherit;
+        }
+
+        .date {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    .infoWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .iconWrapper {
+            display: flex;
+
+            svg {
+                padding-top: 2px;
+                margin-left: 2px;
+            }
+        }
+
+        .types p {
+            text-overflow: ellipsis;
+            width: 100px;
+            overflow: hidden;
+        }
+    }
+}
