@@ -14,6 +14,11 @@
   "articles": [
     {
       "id": "1",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "avatar": "https://png.pngtree.com/png-vector/20200615/ourmid/pngtree-hacker-wearing-hoodie-and-using-laptop-computer-freak-hacking-and-malware-png-image_2256760.jpg"
+      },
       "title": "Javascript news",
       "subtitle": "Что нового в JS за 2022 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
@@ -85,6 +90,11 @@
     },
     {
       "id": "2",
+      "user": {
+        "id": "1",
+        "username": "admin",
+        "avatar": "https://png.pngtree.com/png-vector/20200615/ourmid/pngtree-hacker-wearing-hoodie-and-using-laptop-computer-freak-hacking-and-malware-png-image_2256760.jpg"
+      },
       "title": "Javascript news new",
       "subtitle": "Что нового в JS за 2023 год?",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",

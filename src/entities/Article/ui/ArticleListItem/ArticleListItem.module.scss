@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .card {
     background-color: var(--card-bg-color);
     width: 200px;
@@ -52,5 +53,56 @@
             width: 100px;
             overflow: hidden;
         }
+    }
+}
+
+.card,
+.LIST {
+    width: auto;
+
+    .authorDateWrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .authorWrapper {
+            display: flex;
+            align-items: center;
+
+            p {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .imageWrapper {
+        margin: 20px 0;
+        height: 200px;
+        text-align: center;
+        background-color: var(--bg-color);
+
+        img {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+    .text {
+        margin-bottom: 25px;
+        max-height: 210px;
+        overflow-y: hidden;
+    }
+
+    .infoWrapper {
+        align-items: center;
+    }
+}
+
+.LIST {
+    cursor: auto;
+
+    &:hover {
+        opacity: 1;
+        transform: none;
     }
 }

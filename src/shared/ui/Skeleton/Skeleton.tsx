@@ -6,18 +6,20 @@ interface SkeletonProps {
     className?: string,
     width?: string,
     height?: string,
-    borderRadius?:string
+    borderRadius?:string,
+    margin?: string
 }
 
 const Skeleton = memo((props: SkeletonProps) => {
     const {
-        className, width, height, borderRadius,
+        className, width, height, borderRadius, margin,
     } = props;
 
     const styles: CSSProperties = {
         width,
         height,
         borderRadius,
+        margin,
     };
 
     return (

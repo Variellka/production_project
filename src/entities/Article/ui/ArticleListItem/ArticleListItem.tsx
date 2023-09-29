@@ -1,9 +1,17 @@
-import { Article, ArticleView } from 'entities/Article/model/types/article';
+import {
+    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+} from 'entities/Article/model/types/article';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import EyeIcon from 'shared/assets/icons/ant-design_eye-outlined.svg';
-import Text from 'shared/ui/Text/Text';
+import Text, { TextSize } from 'shared/ui/Text/Text';
 import Icon from 'shared/ui/Icon/Icon';
+import { Button } from 'shared/ui/Button/Button';
+import Avatar from 'shared/ui/Avatar/Avatar';
+import { useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import ArticleTextBlockComponent from '../ArticleTextBlock/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
@@ -15,11 +23,16 @@ interface ArticleListItemProps {
 const ArticleListItem = (props: ArticleListItemProps) => {
     const { className, article, view } = props;
     const { t } = useTranslation('articles');
+    const navigate = useNavigate();
+
+    const onOpenArticle = useCallback(() => {
+        navigate(RoutePath.article_detailed + article.id);
+    }, [article.id, navigate]);
 
     if (view === ArticleView.TILE) {
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <div className={cls.card}>
+            <div className={classNames(cls.ArticleListItem, {}, [className])}>
+                <div className={classNames(cls.card, {}, [cls[view]])} onClick={onOpenArticle}>
                     <div className={cls.imageWrapper}>
                         <img src={article.img} alt={article.title} />
                         <Text text={article.createdAt} className={cls.date} />
@@ -37,9 +50,35 @@ const ArticleListItem = (props: ArticleListItemProps) => {
         );
     }
 
+    const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+
     return (
-        <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            {article?.title}
+        <div className={classNames(cls.ArticleListItem, {}, [className])}>
+            <div className={classNames(cls.card, {}, [cls[view]])}>
+                <div className={cls.authorDateWrapper}>
+                    <div className={cls.authorWrapper}>
+                        <Avatar src={article.user.avatar} size={30} />
+                        <Text text={article.user.username} />
+                    </div>
+                    <Text text={article.createdAt} className={cls.date} />
+                </div>
+                <Text title={article.title} className={cls.title} size={TextSize.L} />
+                <Text text={article.type.toString()} className={cls.types} />
+                <div className={cls.imageWrapper}>
+                    <img src={article.img} alt={article.title} />
+                </div>
+                {textBlock && <ArticleTextBlockComponent className={cls.text} block={textBlock} />}
+                <div className={cls.infoWrapper}>
+                    <Button onClick={onOpenArticle}>
+                        {`${t('read more')} >`}
+                    </Button>
+                    <div className={cls.iconWrapper}>
+                        <Text text={article.views.toString()} />
+                        <Icon Svg={EyeIcon} />
+                    </div>
+                </div>
+
+            </div>
         </div>
     );
 };
