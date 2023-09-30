@@ -22,6 +22,11 @@ Primary.decorators = [StoreDecorator({
         data: {
             id: '1',
             title: 'Javascript news',
+            user: {
+                id: '1',
+                username: 'admin',
+                avatar: 'https://png.pngtree.com/png-vector/20200615/ourmid/pngtree-hacker-wearing-hoodie-and-using-laptop-computer-freak-hacking-and-malware-png-image_2256760.jpg',
+            },
             subtitle: 'Что нового в JS за 2022 год?',
             img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
             views: 1022,
