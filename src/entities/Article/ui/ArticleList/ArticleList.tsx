@@ -10,6 +10,7 @@ interface ArticleListProps {
     className?: string,
     articles: Article[],
     isLoading?: boolean,
+    error?: string,
     view?: ArticleView
 }
 
@@ -18,6 +19,7 @@ const ArticleList = (props: ArticleListProps) => {
         className,
         articles,
         isLoading,
+        error,
         view = ArticleView.LIST,
     } = props;
 
@@ -37,11 +39,15 @@ const ArticleList = (props: ArticleListProps) => {
         );
     }
 
+    if (error) {
+        return (
+            <Text title={t('articles are not found')} theme={TextTheme.ERROR} />
+        );
+    }
+
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles.length
-                ? articles.map(renderArticles)
-                : <Text title={t('articles are not found')} theme={TextTheme.ERROR} />}
+            {articles.length && articles.map(renderArticles)}
         </div>
     );
 };

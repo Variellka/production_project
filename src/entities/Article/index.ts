@@ -7,8 +7,9 @@ import {
     getArticleDetailsIsLoading,
 } from './model/selectors/articleDetails';
 import ArticleList from './ui/ArticleList/ArticleList';
+import ArticleViewSelector from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export {
-    ArticleDetails, Article, ArticleDetailsSchema, ArticleView, ArticleList,
+    ArticleDetails, Article, ArticleDetailsSchema, ArticleView, ArticleList, ArticleViewSelector,
     getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading,
 };
