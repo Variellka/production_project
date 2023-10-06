@@ -9,6 +9,7 @@ import {
 } from 'features/EditableProfileCard';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import Page from 'shared/ui/Page/Page';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducerList = {
@@ -29,8 +30,10 @@ const ProfilePage = () => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <ProfilePageHeader error={profileError} />
-            <EditableProfileCard />
+            <Page>
+                <ProfilePageHeader error={profileError} />
+                <EditableProfileCard />
+            </Page>
         </DynamicModuleLoader>
     );
 };

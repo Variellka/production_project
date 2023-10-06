@@ -11,6 +11,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import Page from 'shared/ui/Page/Page';
 import cls from './ArticleDetailedPage.module.scss';
 import {
     getArticleDetailedCommentsError,
@@ -47,7 +48,7 @@ const ArticleDetailedPage = () => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div>
+            <Page>
                 <Button onClick={onBackToList}>
                     {`< ${t('back to articles')}`}
                 </Button>
@@ -55,7 +56,7 @@ const ArticleDetailedPage = () => {
                 <Text mainTitle={t('comments')} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList comments={comments} isLoading={commentsIsLoading} error={commentError} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

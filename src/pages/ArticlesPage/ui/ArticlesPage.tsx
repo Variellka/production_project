@@ -5,6 +5,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import Page from 'shared/ui/Page/Page';
 import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import {
@@ -26,8 +27,8 @@ const ArticlesPage = () => {
     const view = useSelector(getArticlesPageView);
 
     useInitialEffect(() => {
-        dispatch(fetchArticles());
         dispatch(articlesPageActions.initView());
+        dispatch(fetchArticles({ page: 1 }));
     }, [dispatch]);
 
     const onSetView = useCallback((value: ArticleView) => {
@@ -36,16 +37,18 @@ const ArticlesPage = () => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <ArticleViewSelector
-                onSetView={onSetView}
-                currentView={view}
-            />
-            <ArticleList
-                articles={articles}
-                isLoading={isLoading}
-                error={error}
-                view={view}
-            />
+            <Page>
+                <ArticleViewSelector
+                    onSetView={onSetView}
+                    currentView={view}
+                />
+                <ArticleList
+                    articles={articles}
+                    isLoading={isLoading}
+                    error={error}
+                    view={view}
+                />
+            </Page>
         </DynamicModuleLoader>
     );
 };

@@ -30,7 +30,7 @@ const SideBar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
     ), [collapsed, sideBarItemsList]);
 
     return (
-        <div
+        <aside
             className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [
                 className,
             ])}
@@ -51,7 +51,7 @@ const SideBar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-        </div>
+        </aside>
     );
 });
 

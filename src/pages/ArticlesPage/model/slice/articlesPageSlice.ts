@@ -2,6 +2,7 @@ import { PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolki
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { stat } from 'fs';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { fetchArticles } from '../services/fetchArticles/fetchArticles';
 
@@ -21,16 +22,22 @@ const articlePageSlice = createSlice({
         view: ArticleView.TILE,
         ids: [],
         entities: {},
+        page: 1,
+        hasMore: true,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
             localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
         },
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
+        },
         initView: (state) => {
             const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
             if (view) {
                 state.view = view;
+                state.limit = view === ArticleView.LIST ? 4 : 9;
             }
         },
     },
