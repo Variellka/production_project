@@ -22,7 +22,7 @@ const initialReducers: ReducerList = {
 
 const AddCommentForm = (props: AddCommentFormProps) => {
     const { className, onSendComment } = props;
-    const { t } = useTranslation();
+    const { t } = useTranslation('');
     const dispatch = useAppDispatch();
     const text = useSelector(getAddCommentFormText);
     const error = useSelector(getAddCommentFormError);
