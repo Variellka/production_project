@@ -29,25 +29,17 @@ const ArticleList = (props: ArticleListProps) => {
         <ArticleListItem article={article} view={view} className={cls.ArticleTile} key={article.id} />
     );
 
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {new Array(view === ArticleView.TILE ? 9 : 2).fill(0).map((__, index) => (
-                    <ArticleListItemSkeleton view={view} key={index} />
-                ))}
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <Text title={t('articles are not found')} theme={TextTheme.ERROR} />
-        );
-    }
-
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-            {articles.length && articles.map(renderArticles)}
+            {articles.length ? articles.map(renderArticles) : null}
+            {isLoading && (
+                <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                    {new Array(view === ArticleView.TILE ? 9 : 2).fill(0).map((__, index) => (
+                        <ArticleListItemSkeleton view={view} key={index} />
+                    ))}
+                </div>
+            )}
+            {error && <Text title={t('articles are not found')} theme={TextTheme.ERROR} />}
         </div>
     );
 };

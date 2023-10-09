@@ -27,12 +27,12 @@ const ArticleViewSelector = (props : ArticleViewSelectorProps) => {
     const { className, currentView, onSetView } = props;
 
     return (
-
         <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
             {viewTypes.map((viewType) => (
                 <Button
                     theme={ThemeButton.CLEAR}
                     onClick={() => onSetView?.(viewType.view)}
+                    key={viewType.view}
                 >
                     <Icon
                         Svg={viewType.icon}
