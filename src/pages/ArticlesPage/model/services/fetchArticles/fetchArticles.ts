@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { Article } from 'entities/Article';
-import { getArticlesPageHasMore, getArticlesPageLimit, getArticlesPageNum } from '../../selectors/getArticlesPage';
+import { getArticlesPageLimit, getArticlesPageNum } from '../../selectors/getArticlesPage';
 
 export const fetchArticles = createAsyncThunk<
 Article[], void, ThunkConfig<string>

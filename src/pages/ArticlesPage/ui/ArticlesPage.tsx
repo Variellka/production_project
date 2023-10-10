@@ -1,19 +1,18 @@
 import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import Page from 'shared/ui/Page/Page';
-import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 import {
     getArticlesPageError,
-    getArticlesPageHasMore,
     getArticlesPageIsLoading,
-    getArticlesPageNum,
     getArticlesPageView,
 } from '../model/selectors/getArticlesPage';
+import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 
 const initialReducers = {
     articlesPage: articlesPageReducer,
@@ -25,8 +24,6 @@ const ArticlesPage = () => {
     const isLoading = useSelector(getArticlesPageIsLoading);
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
-    const page = useSelector(getArticlesPageNum);
-    const hasMore = useSelector(getArticlesPageHasMore);
 
     useInitialEffect(() => {
         dispatch(articlesPageActions.initView());
@@ -34,11 +31,8 @@ const ArticlesPage = () => {
     }, [dispatch]);
 
     const onLoadMore = useCallback(() => {
-        if (hasMore && !isLoading) {
-            dispatch(articlesPageActions.setPage(page + 1));
-            dispatch(fetchArticles());
-        }
-    }, [dispatch, hasMore, isLoading, page]);
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
 
     const onSetView = useCallback((value: ArticleView) => {
         dispatch(articlesPageActions.setView(value));
