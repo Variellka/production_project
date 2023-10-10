@@ -2,6 +2,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticleType, ArticleBlockType } from 'entities/Article/model/types/article';
+import { Suspense } from 'react';
 import ArticleDetailedPage from './ArticleDetailedPage';
 
 export default {
@@ -12,7 +13,11 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailedPage>;
 
-const Template: ComponentStory<typeof ArticleDetailedPage> = () => <ArticleDetailedPage />;
+const Template: ComponentStory<typeof ArticleDetailedPage> = () => (
+    <Suspense fallback="...loading">
+        <ArticleDetailedPage />
+    </Suspense>
+);
 
 export const Primary = Template.bind({});
 Primary.decorators = [StoreDecorator({
