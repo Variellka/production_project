@@ -16,7 +16,7 @@ export function useInfiniteScroll(props: UseInfiniteScrollProps) {
         if (callback) {
             const options = {
                 root: wrapperRef.current,
-                rootMargin: '0px',
+                rootMargin: '1px',
                 threshold: 1.0,
             };
 
@@ -30,7 +30,6 @@ export function useInfiniteScroll(props: UseInfiniteScrollProps) {
 
         return () => {
             if (observer) {
-                // eslint-disable-next-line react-hooks/exhaustive-deps
                 observer.disconnect();
             }
         };

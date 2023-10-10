@@ -5,4 +5,4 @@ export const getArticlesPageIsLoading = (state: StateSchema) => state.articlesPa
 export const getArticlesPageView = (state: StateSchema) => state.articlesPage?.view;
 export const getArticlesPageNum = (state: StateSchema) => state.articlesPage?.page || 1;
 export const getArticlesPageLimit = (state: StateSchema) => state.articlesPage?.limit || 9;
-export const getArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore || true;
+export const getArticlesPageHasMore = (state: StateSchema) => state.articlesPage?.hasMore;

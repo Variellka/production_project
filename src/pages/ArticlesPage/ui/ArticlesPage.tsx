@@ -30,13 +30,13 @@ const ArticlesPage = () => {
 
     useInitialEffect(() => {
         dispatch(articlesPageActions.initView());
-        dispatch(fetchArticles({ page: 1 }));
+        dispatch(fetchArticles());
     }, [dispatch]);
 
     const onLoadMore = useCallback(() => {
         if (hasMore && !isLoading) {
             dispatch(articlesPageActions.setPage(page + 1));
-            dispatch(fetchArticles({ page: page + 1 }));
+            dispatch(fetchArticles());
         }
     }, [dispatch, hasMore, isLoading, page]);
 
