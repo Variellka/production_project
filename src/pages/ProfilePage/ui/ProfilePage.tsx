@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader, { ReducerList }
     from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -7,6 +7,9 @@ import { getUserAuthData } from 'entities/User';
 import {
     EditableProfileCard, fetchProfileData, getProfileError, profileReducer,
 } from 'features/EditableProfileCard';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
+import Page from 'shared/ui/Page/Page';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducerList = {
@@ -17,17 +20,20 @@ const ProfilePage = () => {
     const dispatch = useAppDispatch();
     const profileError = useSelector(getProfileError);
     const isAuth = useSelector(getUserAuthData);
+    const { id } = useParams<{id: string}>();
 
-    useEffect(() => {
-        if (isAuth && __PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id && isAuth) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch, isAuth]);
+    }, [isAuth, id]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <ProfilePageHeader error={profileError} />
-            <EditableProfileCard />
+            <Page>
+                <ProfilePageHeader error={profileError} />
+                <EditableProfileCard />
+            </Page>
         </DynamicModuleLoader>
     );
 };

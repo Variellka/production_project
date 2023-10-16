@@ -6,6 +6,7 @@ import { validateProfileData } from './validateProfileData';
 describe('validateProfileData.test', () => {
     test('all fields are correct', async () => {
         const result = validateProfileData({
+            id: '1',
             firstname: 'xenia',
             lastname: 'levchenko',
             age: 28,
@@ -17,6 +18,7 @@ describe('validateProfileData.test', () => {
 
     test('first or lastname incorrect', async () => {
         const result = validateProfileData({
+            id: '1',
             firstname: '',
             lastname: '',
             age: 28,
@@ -30,6 +32,7 @@ describe('validateProfileData.test', () => {
 
     test('age incorrect', async () => {
         const result = validateProfileData({
+            id: '1',
             firstname: 'xenia',
             lastname: 'levchenko',
             age: NaN,
@@ -43,6 +46,7 @@ describe('validateProfileData.test', () => {
 
     test('age and names are incorrect', async () => {
         const result = validateProfileData({
+            id: '1',
             firstname: '',
             lastname: '',
             age: NaN,

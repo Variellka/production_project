@@ -16,5 +16,9 @@
   "authorization": "авторизация",
   "currency": "валюта",
   "country": "страна",
-  "articles": "статьи"
+  "articles": "статьи",
+  "send": "отправить",
+  "add comment": "добавить комментарий",
+  "no comments": "нет комментариев"
+
 }

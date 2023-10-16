@@ -19,10 +19,6 @@ const CommentList = (props: CommentListProps) => {
     } = props;
     const { t } = useTranslation();
 
-    if (isLoading) {
-        return <Loader />;
-    }
-
     return (
         <div className={classNames(cls.CommentList, {}, [className])}>
             {comments?.length
@@ -31,6 +27,7 @@ const CommentList = (props: CommentListProps) => {
                         key={comment.id}
                         comment={comment}
                         className={cls.comment}
+                        isLoading={isLoading}
                     />
                 ))
                 : <Text title={t('no comments')} />}

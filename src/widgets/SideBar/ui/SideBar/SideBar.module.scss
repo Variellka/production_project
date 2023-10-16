@@ -4,6 +4,7 @@
     background: var(--inverted-bg-color);
     transition: width 0.2s;
     position: relative;
+    flex-shrink: 0;
 }
 
 .links {

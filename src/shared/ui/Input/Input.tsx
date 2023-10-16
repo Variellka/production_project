@@ -11,7 +11,9 @@ interface InputProps extends HTMLInputProps {
     value? : string | number,
     onChange? : (value: any) => void,
     autoFocus?: boolean,
-    readonly?: boolean
+    readonly?: boolean,
+    placeholderExternal? : string,
+    placeholderInternal?: string
 }
 
 const Input = memo((props: InputProps) => {
@@ -20,7 +22,8 @@ const Input = memo((props: InputProps) => {
         value,
         onChange,
         type = 'text',
-        placeholder,
+        placeholderExternal,
+        placeholderInternal = '',
         autoFocus,
         readonly,
         ...otherProps
@@ -38,7 +41,7 @@ const Input = memo((props: InputProps) => {
         <div
             className={classNames(cls.InputWrapper, mods, [className])}
         >
-            {placeholder && <div className={cls.placeholder}>{placeholder}</div>}
+            {placeholderExternal && <div className={cls.placeholder}>{placeholderExternal}</div>}
             <input
                 className={cls.input}
                 value={value}
@@ -48,6 +51,7 @@ const Input = memo((props: InputProps) => {
                 autoFocus={autoFocus}
                 readOnly={readonly}
                 {...otherProps}
+                placeholder={placeholderInternal}
             />
         </div>
     );

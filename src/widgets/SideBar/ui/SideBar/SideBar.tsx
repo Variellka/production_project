@@ -5,7 +5,8 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
-import { SideBarItemsList } from 'widgets/SideBar/model/items';
+import { useSelector } from 'react-redux';
+import { getSideBarItems } from 'widgets/SideBar/model/selectors/getSideBarItems';
 import cls from './SideBar.module.scss';
 import SideBarItem from '../SideBarItem/SideBarItem';
 
@@ -16,18 +17,20 @@ interface SideBarProps {
 const SideBar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
     const [collapsed, setCollapsed] = useState(false);
 
+    const sideBarItemsList = useSelector(getSideBarItems);
+
     const toggleSideBar = () => {
         setCollapsed((prev) => !prev);
     };
 
     const itemsList = useMemo(() => (
-        SideBarItemsList.map((item) => (
+        sideBarItemsList.map((item) => (
             <SideBarItem item={item} collapsed={collapsed} key={item.path} />
         ))
-    ), [collapsed]);
+    ), [collapsed, sideBarItemsList]);
 
     return (
-        <div
+        <aside
             className={classNames(cls.SideBar, { [cls.collapsed]: collapsed }, [
                 className,
             ])}
@@ -48,7 +51,7 @@ const SideBar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
             >
                 {collapsed ? '>' : '<'}
             </Button>
-        </div>
+        </aside>
     );
 });
 

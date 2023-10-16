@@ -17,6 +17,7 @@ const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...
 export const Primary = Template.bind({});
 Primary.args = {
     data: {
+        id: '1',
         firstname: 'alex',
         lastname: 'levchenko',
         age: 30,
@@ -32,6 +33,7 @@ Primary.args = {
 export const PrimaryWithValidateErrors = Template.bind({});
 PrimaryWithValidateErrors.args = {
     data: {
+        id: '1',
         firstname: '',
         lastname: '',
         age: NaN,

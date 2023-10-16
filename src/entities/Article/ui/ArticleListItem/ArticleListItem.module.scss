@@ -1,0 +1,107 @@
+/* stylelint-disable no-descending-specificity */
+.card {
+    background-color: var(--card-bg-color);
+    width: 230px;
+    margin: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.8;
+        transform: scale(1.08);
+    }
+
+    .title p {
+        text-overflow: ellipsis;
+        width: 170px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .imageWrapper {
+        height: 180px;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: inherit;
+        }
+
+        .date {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+
+    .infoWrapper {
+        display: flex;
+        justify-content: space-between;
+
+        .iconWrapper {
+            display: flex;
+
+            svg {
+                padding-top: 2px;
+                margin-left: 2px;
+            }
+        }
+
+        .types p {
+            text-overflow: ellipsis;
+            width: 100px;
+            overflow: hidden;
+        }
+    }
+}
+
+.card,
+.LIST {
+    .authorDateWrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+
+        .authorWrapper {
+            display: flex;
+            align-items: center;
+
+            p {
+                margin-left: 15px;
+            }
+        }
+    }
+
+    .imageWrapper {
+        margin: 20px 0;
+        height: 200px;
+        text-align: center;
+        background-color: var(--bg-color);
+
+        img {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+
+    .text {
+        margin-bottom: 25px;
+        max-height: 210px;
+        overflow-y: hidden;
+    }
+
+    .infoWrapper {
+        align-items: center;
+    }
+}
+
+.LIST {
+    width: auto;
+    cursor: auto;
+
+    &:hover {
+        opacity: 1;
+        transform: none;
+    }
+}

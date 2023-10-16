@@ -72,28 +72,28 @@ const ProfileCard = (props: ProfileCardProps) => {
                 </div>
                 <Input
                     value={data?.username}
-                    placeholder={`${t('username')}:`}
+                    placeholderExternal={`${t('username')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeUsername}
                 />
                 <Input
                     value={data?.firstname}
-                    placeholder={`${t('name')}:`}
+                    placeholderExternal={`${t('name')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeFirstname}
                 />
                 <Input
                     value={data?.lastname}
-                    placeholder={`${t('lastname')}:`}
+                    placeholderExternal={`${t('lastname')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeLastname}
                 />
                 <Input
                     value={data?.age}
-                    placeholder={`${t('age')}:`}
+                    placeholderExternal={`${t('age')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeAge}
@@ -106,14 +106,14 @@ const ProfileCard = (props: ProfileCardProps) => {
                 />
                 <Input
                     value={data?.city}
-                    placeholder={`${t('city')}:`}
+                    placeholderExternal={`${t('city')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeCity}
                 />
                 <Input
                     value={data?.avatar}
-                    placeholder={`${t('avatar')}:`}
+                    placeholderExternal={`${t('avatar')}:`}
                     className={cls.input}
                     readonly={readonly}
                     onChange={onChangeAvatar}

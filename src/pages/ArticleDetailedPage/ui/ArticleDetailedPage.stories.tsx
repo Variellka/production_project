@@ -2,6 +2,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { ArticleType, ArticleBlockType } from 'entities/Article/model/types/article';
+import { Suspense } from 'react';
 import ArticleDetailedPage from './ArticleDetailedPage';
 
 export default {
@@ -12,7 +13,11 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailedPage>;
 
-const Template: ComponentStory<typeof ArticleDetailedPage> = () => <ArticleDetailedPage />;
+const Template: ComponentStory<typeof ArticleDetailedPage> = () => (
+    <Suspense fallback="...loading">
+        <ArticleDetailedPage />
+    </Suspense>
+);
 
 export const Primary = Template.bind({});
 Primary.decorators = [StoreDecorator({
@@ -22,6 +27,11 @@ Primary.decorators = [StoreDecorator({
         data: {
             id: '1',
             title: 'Javascript news',
+            user: {
+                id: '1',
+                username: 'admin',
+                avatar: 'https://png.pngtree.com/png-vector/20200615/ourmid/pngtree-hacker-wearing-hoodie-and-using-laptop-computer-freak-hacking-and-malware-png-image_2256760.jpg',
+            },
             subtitle: 'Что нового в JS за 2022 год?',
             img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
             views: 1022,

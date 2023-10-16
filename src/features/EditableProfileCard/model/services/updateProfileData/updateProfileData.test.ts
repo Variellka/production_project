@@ -6,6 +6,7 @@ import { updateProfileData } from './updateProfileData';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
 const data = {
+    id: '1',
     firstname: 'xenia',
     lastname: 'levchenko',
     age: 28,
