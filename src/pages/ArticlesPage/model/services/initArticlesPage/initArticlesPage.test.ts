@@ -1,12 +1,12 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { fetchNextArticlesPage } from './fetchNextArticlesPage';
+import { initArticlesPage } from './initArticlesPage';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
 jest.mock('../fetchArticles/fetchArticles');
 
 describe('fetchNextArticlesPage.test', () => {
-    test('success', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+    test('first init', async () => {
+        const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
                 isLoading: false,
                 hasMore: true,
@@ -14,7 +14,7 @@ describe('fetchNextArticlesPage.test', () => {
                 limit: 4,
                 ids: [],
                 entities: {},
-                _inited: true,
+                _inited: false,
             },
         });
         await thunk.callThunk();
@@ -23,29 +23,11 @@ describe('fetchNextArticlesPage.test', () => {
         expect(thunk.dispatch).toBeCalledTimes(4);
         expect(fetchArticles).toBeCalled();
     });
-    test('not called when isLoading', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
+    test('second init', async () => {
+        const thunk = new TestAsyncThunk(initArticlesPage, {
             articlesPage: {
                 isLoading: true,
                 hasMore: true,
-                page: 1,
-                limit: 4,
-                ids: [],
-                entities: {},
-                _inited: true,
-            },
-        });
-        await thunk.callThunk();
-
-        // pending + fulfilled
-        expect(thunk.dispatch).toBeCalledTimes(2);
-        expect(fetchArticles).not.toBeCalled();
-    });
-    test('not called when hasMore === false', async () => {
-        const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
-            articlesPage: {
-                isLoading: false,
-                hasMore: false,
                 page: 1,
                 limit: 4,
                 ids: [],

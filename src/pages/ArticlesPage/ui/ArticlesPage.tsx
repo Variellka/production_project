@@ -10,8 +10,8 @@ import {
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from '../model/selectors/getArticlesPage';
-import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
 
 const initialReducers = {
@@ -26,8 +26,7 @@ const ArticlesPage = () => {
     const view = useSelector(getArticlesPageView);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initView());
-        dispatch(fetchArticles());
+        dispatch(initArticlesPage());
     }, [dispatch]);
 
     const onLoadMore = useCallback(() => {
@@ -39,7 +38,7 @@ const ArticlesPage = () => {
     }, [dispatch]);
 
     return (
-        <DynamicModuleLoader reducers={initialReducers}>
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
             <Page onScrollEnds={onLoadMore}>
                 <ArticleViewSelector
                     onSetView={onSetView}
