@@ -11,7 +11,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { AddCommentForm } from 'features/AddCommentForm';
 import { Button } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import Page from 'shared/ui/Page/Page';
+import Page from 'widgets/Page/Page';
 import cls from './ArticleDetailedPage.module.scss';
 import {
     getArticleDetailedCommentsError,
