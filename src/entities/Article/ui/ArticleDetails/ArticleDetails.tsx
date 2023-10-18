@@ -47,11 +47,11 @@ const ArticleDetails = memo(({ className, id }:ArticleDetailsProps) => {
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
         case ArticleBlockType.TEXT:
-            return <ArticleTextBlockComponent key={block.id} block={block} />;
+            return <ArticleTextBlockComponent key={block.id} block={block} className={cls.ArticleBlock} />;
         case ArticleBlockType.IMAGE:
-            return <ArticleImageBlockComponent key={block.id} block={block} />;
+            return <ArticleImageBlockComponent key={block.id} block={block} className={cls.ArticleBlock} />;
         case ArticleBlockType.CODE:
-            return <ArticleCodeBlockComponent key={block.id} block={block} />;
+            return <ArticleCodeBlockComponent key={block.id} block={block} className={cls.ArticleBlock} />;
         default: return null;
         }
     }, []);

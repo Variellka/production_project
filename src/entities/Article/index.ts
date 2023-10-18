@@ -1,5 +1,5 @@
 import ArticleDetails from './ui/ArticleDetails/ArticleDetails';
-import { Article, ArticleView } from './model/types/article';
+import { Article, ArticleView, ArticleSortField } from './model/types/article';
 import { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 import {
     getArticleDetailsData,
@@ -12,4 +12,5 @@ import ArticleViewSelector from './ui/ArticleViewSelector/ArticleViewSelector';
 export {
     ArticleDetails, Article, ArticleDetailsSchema, ArticleView, ArticleList, ArticleViewSelector,
     getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading,
+    ArticleSortField,
 };

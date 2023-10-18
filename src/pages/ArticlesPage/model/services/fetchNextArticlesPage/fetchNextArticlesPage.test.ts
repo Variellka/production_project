@@ -1,4 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { ArticleSortField } from 'entities/Article';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
@@ -15,6 +16,9 @@ describe('fetchNextArticlesPage.test', () => {
                 ids: [],
                 entities: {},
                 _inited: true,
+                sort: ArticleSortField.CREATED,
+                search: '',
+                order: 'asc',
             },
         });
         await thunk.callThunk();
@@ -33,6 +37,9 @@ describe('fetchNextArticlesPage.test', () => {
                 ids: [],
                 entities: {},
                 _inited: true,
+                sort: ArticleSortField.CREATED,
+                search: '',
+                order: 'asc',
             },
         });
         await thunk.callThunk();
@@ -51,6 +58,9 @@ describe('fetchNextArticlesPage.test', () => {
                 ids: [],
                 entities: {},
                 _inited: true,
+                sort: ArticleSortField.CREATED,
+                search: '',
+                order: 'asc',
             },
         });
         await thunk.callThunk();

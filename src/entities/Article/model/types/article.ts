@@ -52,3 +52,9 @@ export enum ArticleView {
     LIST = 'LIST',
     TILE = 'TILE'
 }
+
+export enum ArticleSortField {
+    VIEWS = 'views',
+    CREATED = 'createdAt',
+    TITLE = 'title'
+}
