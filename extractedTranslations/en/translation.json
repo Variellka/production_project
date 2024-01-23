@@ -18,6 +18,7 @@
   "article was not found": "",
   "articles are not found": "",
   "articles page": "",
+  "asc": "",
   "authorization": "",
   "avatar": "",
   "back to articles": "",
@@ -25,8 +26,10 @@
   "city": "",
   "comments": "",
   "country": "",
+  "created date": "",
   "currency": "",
   "decrement": "",
+  "desc": "",
   "edit": "",
   "hello": "",
   "increment": "",
@@ -51,9 +54,12 @@
   "save": "",
   "search": "",
   "send": "",
+  "sort": "",
   "sort by": "",
+  "title": "",
   "try reload page or check if the link is correct": "",
   "try to reload page": "",
   "unknown error": "",
-  "username": ""
+  "username": "",
+  "views": ""
 }

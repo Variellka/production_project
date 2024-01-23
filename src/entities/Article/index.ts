@@ -8,9 +8,10 @@ import {
 } from './model/selectors/articleDetails';
 import ArticleList from './ui/ArticleList/ArticleList';
 import ArticleViewSelector from './ui/ArticleViewSelector/ArticleViewSelector';
+import ArticleSortSelector from './ui/ArticleSortSelector/ArticleSortSelector';
 
 export {
     ArticleDetails, Article, ArticleDetailsSchema, ArticleView, ArticleList, ArticleViewSelector,
     getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading,
-    ArticleSortField,
+    ArticleSortField, ArticleSortSelector,
 };

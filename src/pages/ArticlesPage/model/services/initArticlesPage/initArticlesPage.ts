@@ -14,7 +14,7 @@ void, void, ThunkConfig<string>
 
             if (!inited) {
                 dispatch(articlesPageActions.initState());
-                dispatch(fetchArticles());
+                dispatch(fetchArticles({}));
             }
         },
     );
