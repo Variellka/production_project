@@ -21,7 +21,8 @@ describe('fetchNextArticlesPage.test', () => {
                 order: 'asc',
             },
         });
-        await thunk.callThunk();
+        const urlParams = new URLSearchParams('');
+        await thunk.callThunk(urlParams);
 
         // pending + fulfilled + 2x dispatch
         expect(thunk.dispatch).toBeCalledTimes(4);
@@ -42,7 +43,8 @@ describe('fetchNextArticlesPage.test', () => {
                 order: 'asc',
             },
         });
-        await thunk.callThunk();
+        const urlParams = new URLSearchParams('');
+        await thunk.callThunk(urlParams);
 
         // pending + fulfilled
         expect(thunk.dispatch).toBeCalledTimes(2);

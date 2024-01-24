@@ -33,7 +33,7 @@ const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
             <Select<ArticleSortField>
-                label={`${t('sort')}:`}
+                label={`${t('sort by')}:`}
                 options={sortOptions}
                 value={sort}
                 readonly={false}
@@ -41,7 +41,7 @@ const ArticleSortSelector = (props: ArticleSortSelectorProps) => {
                 onChange={onChangeSort}
             />
             <Select<SortOrder>
-                label={`${t('sort by')}:`}
+                label={`${t('order by')}:`}
                 options={orderOptions}
                 value={order}
                 readonly={false}

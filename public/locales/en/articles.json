@@ -10,5 +10,11 @@
     "back to articles": "back to articles",
     "sort by": "sort by",
     "sort": "sort",
-    "search": "search"
+    "search": "search",
+    "order by": "order by",
+    "views": "views",
+    "created date": "created date",
+    "title": "title",
+    "asc": "asc",
+    "desc": "desc"
 }

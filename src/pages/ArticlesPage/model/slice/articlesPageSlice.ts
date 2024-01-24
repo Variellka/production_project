@@ -76,7 +76,7 @@ const articlePageSlice = createSlice({
                     articlesAdapter.addMany(state, action.payload);
                 }
 
-                state.hasMore = action.payload.length > 0;
+                state.hasMore = action.payload.length >= state.limit;
             })
             .addCase(fetchArticles.rejected, (state, action) => {
                 state.error = action.payload;
