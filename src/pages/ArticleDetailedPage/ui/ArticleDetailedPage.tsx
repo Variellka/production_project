@@ -17,13 +17,10 @@ import {
     getArticleDetailedCommentsError,
     getArticleDetailedCommentsIsLoading,
 } from '../model/selectors/comments';
-import { articleDetailedCommentsReducer, getArticleComments } from '../model/slice/articleDetailedCommentsSlice';
+import { getArticleComments } from '../model/slice/articleDetailedCommentsSlice';
 import { fetchCommentsByArticleId } from '../model/servives/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../model/servives/addCommentForArticle/addCommentForArticle';
-import {
-    articlesDetailedRecommendationsReducer,
-    getArticlesRecommendations,
-} from '../model/slice/articleDetailedRecommendationsSlice';
+import { getArticlesRecommendations } from '../model/slice/articleDetailedRecommendationsSlice';
 import {
     fetchRecommendationsForArticle,
 } from '../model/servives/fetchRecommendationsForArticle/fetchRecommendationsForArticle';
@@ -31,10 +28,10 @@ import {
     getArticleDetailedRecommendationsError,
     getArticleDetailedRecommendationsIsLoading,
 } from '../model/selectors/recommendations';
+import { articleDetailsAdditionalReducer } from '../model/slice';
 
 const initialReducers: ReducerList = {
-    articleDetailedComments: articleDetailedCommentsReducer,
-    articleDetailedRecommendations: articlesDetailedRecommendationsReducer,
+    articleDetailsAdditional: articleDetailsAdditionalReducer,
 };
 
 const ArticleDetailedPage = () => {
