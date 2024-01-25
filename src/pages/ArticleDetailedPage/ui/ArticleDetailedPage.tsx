@@ -1,4 +1,4 @@
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList, ArticleView } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,9 +20,17 @@ import {
 import { articleDetailedCommentsReducer, getArticleComments } from '../model/slice/articleDetailedCommentsSlice';
 import { fetchCommentsByArticleId } from '../model/servives/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../model/servives/addCommentForArticle/addCommentForArticle';
+import {
+    articlesDetailedRecommendationsReducer,
+    getArticlesRecommendations,
+} from '../model/slice/articleDetailedRecommendationsSlice';
+import {
+    fetchRecommendationsForArticle,
+} from '../model/servives/fetchRecommendationsForArticle/fetchRecommendationsForArticle';
 
 const initialReducers: ReducerList = {
     articleDetailedComments: articleDetailedCommentsReducer,
+    articleDetailedRecommendations: articlesDetailedRecommendationsReducer,
 };
 
 const ArticleDetailedPage = () => {
@@ -33,9 +41,11 @@ const ArticleDetailedPage = () => {
     const commentError = useSelector(getArticleDetailedCommentsError);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const recommendations = useSelector(getArticlesRecommendations.selectAll);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id!));
+        dispatch(fetchRecommendationsForArticle());
     }, [id]);
 
     const onSendComment = useCallback((text: string) => {
@@ -53,6 +63,12 @@ const ArticleDetailedPage = () => {
                     {`< ${t('back to articles')}`}
                 </Button>
                 <ArticleDetails id={id} />
+                <Text mainTitle={t('latest articles')} className={cls.commentTitle} />
+                <ArticleList
+                    articles={recommendations}
+                    view={ArticleView.TILE}
+                    className={cls.ArticleRecommendations}
+                />
                 <Text mainTitle={t('comments')} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList comments={comments} isLoading={commentsIsLoading} error={commentError} />
