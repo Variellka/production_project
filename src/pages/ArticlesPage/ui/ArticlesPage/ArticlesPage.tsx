@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import Page from 'widgets/Page/Page';
 import { useSearchParams } from 'react-router-dom';
+import Text from 'shared/ui/Text/Text';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,

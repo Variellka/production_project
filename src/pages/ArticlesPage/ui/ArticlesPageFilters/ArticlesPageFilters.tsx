@@ -1,5 +1,5 @@
 import {
-    ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector,
+    ArticleSortField, ArticleSortSelector, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector,
 } from 'entities/Article';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
@@ -10,10 +10,11 @@ import Input from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import { fetchArticles } from 'pages/ArticlesPage/model/services/fetchArticles/fetchArticles';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem } from 'shared/ui/Tabs/Tabs';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';
 import {
-    getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageView,
+    getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView,
 } from '../../model/selectors/getArticlesPage';
 
 interface ArticlesPageFiltersProps {
@@ -28,6 +29,7 @@ const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
     const order = useSelector(getArticlesPageOrder);
     const sort = useSelector(getArticlesPageSort);
     const search = useSelector(getArticlesPageSearch);
+    const type = useSelector(getArticlesPageType);
 
     const fetchData = useCallback(() => {
         dispatch(articlesPageActions.setPage(1));
@@ -55,6 +57,11 @@ const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
         debounceFetchData();
     }, [debounceFetchData, dispatch]);
 
+    const onChangeType = useCallback((value: ArticleType) => {
+        dispatch(articlesPageActions.setType(value));
+        debounceFetchData();
+    }, [debounceFetchData, dispatch]);
+
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
             <div className={cls.filtersWrapper}>
@@ -74,6 +81,7 @@ const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
                 onChange={onChangeSearch}
                 value={search}
             />
+            <ArticleTypeTabs value={type} onChangeType={onChangeType} />
         </div>
     );
 };
