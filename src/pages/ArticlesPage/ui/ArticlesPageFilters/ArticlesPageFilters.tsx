@@ -59,8 +59,8 @@ const ArticlesPageFilters = (props: ArticlesPageFiltersProps) => {
 
     const onChangeType = useCallback((value: ArticleType) => {
         dispatch(articlesPageActions.setType(value));
-        debounceFetchData();
-    }, [debounceFetchData, dispatch]);
+        fetchData();
+    }, [fetchData, dispatch]);
 
     return (
         <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
