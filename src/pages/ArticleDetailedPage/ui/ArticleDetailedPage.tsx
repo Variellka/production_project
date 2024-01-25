@@ -27,6 +27,10 @@ import {
 import {
     fetchRecommendationsForArticle,
 } from '../model/servives/fetchRecommendationsForArticle/fetchRecommendationsForArticle';
+import {
+    getArticleDetailedRecommendationsError,
+    getArticleDetailedRecommendationsIsLoading,
+} from '../model/selectors/recommendations';
 
 const initialReducers: ReducerList = {
     articleDetailedComments: articleDetailedCommentsReducer,
@@ -42,6 +46,8 @@ const ArticleDetailedPage = () => {
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
     const recommendations = useSelector(getArticlesRecommendations.selectAll);
+    const recommendationsIsLoading = useSelector(getArticleDetailedRecommendationsIsLoading);
+    const recommendationsError = useSelector(getArticleDetailedRecommendationsError);
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id!));
@@ -68,10 +74,16 @@ const ArticleDetailedPage = () => {
                     articles={recommendations}
                     view={ArticleView.TILE}
                     className={cls.ArticleRecommendations}
+                    isLoading={recommendationsIsLoading}
+                    error={recommendationsError}
                 />
                 <Text mainTitle={t('comments')} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
-                <CommentList comments={comments} isLoading={commentsIsLoading} error={commentError} />
+                <CommentList
+                    comments={comments}
+                    isLoading={commentsIsLoading}
+                    error={commentError}
+                />
             </Page>
         </DynamicModuleLoader>
     );
