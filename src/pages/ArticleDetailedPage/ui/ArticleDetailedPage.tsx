@@ -73,6 +73,7 @@ const ArticleDetailedPage = () => {
                     className={cls.ArticleRecommendations}
                     isLoading={recommendationsIsLoading}
                     error={recommendationsError}
+                    target="blank"
                 />
                 <Text mainTitle={t('comments')} className={cls.commentTitle} />
                 <AddCommentForm onSendComment={onSendComment} />
