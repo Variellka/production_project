@@ -1,34 +1,33 @@
 import { ArticleDetails, ArticleList, ArticleView } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
+import { AddCommentForm } from 'features/AddCommentForm';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
-import Text from 'shared/ui/Text/Text';
-import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import DynamicModuleLoader, { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { Button } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import Text from 'shared/ui/Text/Text';
 import Page from 'widgets/Page/Page';
-import cls from './ArticleDetailedPage.module.scss';
 import {
     getArticleDetailedCommentsError,
     getArticleDetailedCommentsIsLoading,
-} from '../model/selectors/comments';
-import { getArticleComments } from '../model/slice/articleDetailedCommentsSlice';
-import { fetchCommentsByArticleId } from '../model/servives/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentForArticle } from '../model/servives/addCommentForArticle/addCommentForArticle';
-import { getArticlesRecommendations } from '../model/slice/articleDetailedRecommendationsSlice';
-import {
-    fetchRecommendationsForArticle,
-} from '../model/servives/fetchRecommendationsForArticle/fetchRecommendationsForArticle';
+} from '../../model/selectors/comments';
 import {
     getArticleDetailedRecommendationsError,
     getArticleDetailedRecommendationsIsLoading,
-} from '../model/selectors/recommendations';
-import { articleDetailsAdditionalReducer } from '../model/slice';
+} from '../../model/selectors/recommendations';
+import { addCommentForArticle } from '../../model/servives/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/servives/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import {
+    fetchRecommendationsForArticle,
+} from '../../model/servives/fetchRecommendationsForArticle/fetchRecommendationsForArticle';
+import { articleDetailsAdditionalReducer } from '../../model/slice';
+import { getArticleComments } from '../../model/slice/articleDetailedCommentsSlice';
+import { getArticlesRecommendations } from '../../model/slice/articleDetailedRecommendationsSlice';
+import cls from './ArticleDetailedPage.module.scss';
+import ArticleDetailedPageHeader from '../ArticleDetailedPageHeader/ArticleDetailedPageHeader';
 
 const initialReducers: ReducerList = {
     articleDetailsAdditional: articleDetailsAdditionalReducer,
@@ -41,7 +40,7 @@ const ArticleDetailedPage = () => {
     const commentsIsLoading = useSelector(getArticleDetailedCommentsIsLoading);
     const commentError = useSelector(getArticleDetailedCommentsError);
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
+
     const recommendations = useSelector(getArticlesRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleDetailedRecommendationsIsLoading);
     const recommendationsError = useSelector(getArticleDetailedRecommendationsError);
@@ -55,16 +54,10 @@ const ArticleDetailedPage = () => {
         dispatch(addCommentForArticle(text));
     }, [dispatch]);
 
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
-
     return (
         <DynamicModuleLoader reducers={initialReducers}>
             <Page>
-                <Button onClick={onBackToList}>
-                    {`< ${t('back to articles')}`}
-                </Button>
+                <ArticleDetailedPageHeader />
                 <ArticleDetails id={id} />
                 <Text mainTitle={t('latest articles')} className={cls.commentTitle} />
                 <ArticleList

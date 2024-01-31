@@ -1,4 +1,4 @@
-import { ArticleDetailedPageAsync } from './ui/ArticleDetailedPage.async';
+import { ArticleDetailedPageAsync } from './ui/ArticleDetailedPage/ArticleDetailedPage.async';
 import { ArticleDetailsAdditionalSchema } from './model/types/index';
 
 export {

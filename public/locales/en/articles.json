@@ -16,5 +16,8 @@
     "created date": "created date",
     "title": "title",
     "asc": "asc",
-    "desc": "desc"
+    "desc": "desc",
+    "articleCreatePage": "articleCreatePage",
+    "articleEditPage": "articleEditPage",
+    "edit article": "edit article"
 }
