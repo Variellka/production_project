@@ -16,7 +16,7 @@ interface AppLinkProps extends LinkProps {
 
 export const AppLink = memo((props: AppLinkProps) => {
     const {
-        to, className, children, theme = AppLinkTheme.PRIMARY,
+        to, className, children, theme = AppLinkTheme.PRIMARY, ...otherProps
     } = props;
 
     return (
@@ -30,6 +30,7 @@ export const AppLink = memo((props: AppLinkProps) => {
                 })}
             to={to}
             className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+            {...otherProps}
         >
             {children}
         </NavLink>

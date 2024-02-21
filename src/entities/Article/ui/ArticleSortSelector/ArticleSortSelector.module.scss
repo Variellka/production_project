@@ -1,0 +1,10 @@
+.ArticleSortSelector {
+    display: flex;
+}
+
+.sort {
+    justify-content: flex-start;
+    width: fit-content;
+    white-space: nowrap;
+    margin-right: 20px;
+}

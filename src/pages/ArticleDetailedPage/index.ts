@@ -1,10 +1,7 @@
-import { ArticleDetailedPageAsync } from './ui/ArticleDetailedPage.async';
-import { ArticleDetailedCommentsSchema } from './model/types/ArticleDetailedCommentsSchema';
-import { getArticleDetailedCommentsError, getArticleDetailedCommentsIsLoading } from './model/selectors/comments';
+import { ArticleDetailedPageAsync } from './ui/ArticleDetailedPage/ArticleDetailedPage.async';
+import { ArticleDetailsAdditionalSchema } from './model/types/index';
 
 export {
     ArticleDetailedPageAsync as ArticleDetailedPage,
-    ArticleDetailedCommentsSchema,
-    getArticleDetailedCommentsError,
-    getArticleDetailedCommentsIsLoading,
+    ArticleDetailsAdditionalSchema,
 };

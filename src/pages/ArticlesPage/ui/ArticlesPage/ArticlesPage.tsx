@@ -1,18 +1,21 @@
-import { ArticleList, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleList } from 'entities/Article';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import DynamicModuleLoader from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import Page from 'shared/ui/Page/Page';
+import Page from 'widgets/Page/Page';
+import { useSearchParams } from 'react-router-dom';
+import Text from 'shared/ui/Text/Text';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView,
-} from '../model/selectors/getArticlesPage';
-import { fetchArticles } from '../model/services/fetchArticles/fetchArticles';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { articlesPageActions, articlesPageReducer, getArticles } from '../model/slice/articlesPageSlice';
+} from '../../model/selectors/getArticlesPage';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { articlesPageReducer, getArticles } from '../../model/slice/articlesPageSlice';
+import ArticlesPageFilters from '../ArticlesPageFilters/ArticlesPageFilters';
 
 const initialReducers = {
     articlesPage: articlesPageReducer,
@@ -25,26 +28,20 @@ const ArticlesPage = () => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
 
+    const [searchParams] = useSearchParams();
+
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initView());
-        dispatch(fetchArticles());
+        dispatch(initArticlesPage(searchParams));
     }, [dispatch]);
 
     const onLoadMore = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
-    const onSetView = useCallback((value: ArticleView) => {
-        dispatch(articlesPageActions.setView(value));
-    }, [dispatch]);
-
     return (
-        <DynamicModuleLoader reducers={initialReducers}>
+        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount={false}>
             <Page onScrollEnds={onLoadMore}>
-                <ArticleViewSelector
-                    onSetView={onSetView}
-                    currentView={view}
-                />
+                <ArticlesPageFilters />
                 <ArticleList
                     articles={articles}
                     isLoading={isLoading}

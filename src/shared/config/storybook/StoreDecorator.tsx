@@ -4,14 +4,14 @@ import { articleReducer } from 'entities/Article/model/slice/articleSlice';
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slice/addCommentFormSlice';
 import { loginReducer } from 'features/AuthByUsername';
 import { profileReducer } from 'features/EditableProfileCard';
-import { articleDetailedCommentsReducer } from 'pages/ArticleDetailedPage/model/slice/articleDetailedCommentsSlice';
+import { articleDetailsAdditionalReducer } from 'pages/ArticleDetailedPage/model/slice';
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 const defaultAsyncReducers: ReducerList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articleReducer,
-    articleDetailedComments: articleDetailedCommentsReducer,
+    articleDetailsAdditional: articleDetailsAdditionalReducer,
     addCommentForm: addCommentFormReducer,
 };
 

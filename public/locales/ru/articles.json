@@ -7,5 +7,17 @@
     "comments": "комментарии",
     "articles are not found": "статьи не найдены",
     "read more": "читать далее",
-    "back to articles": "назад ко всем статьям"
+    "back to articles": "назад ко всем статьям",
+    "sort by": "сортировать по",
+    "sort": "сортировать",
+    "search": "поиск",
+    "order by": "упорядочить по",
+    "views": "просмотрам",
+    "created date": "дате создания",
+    "title": "названию",
+    "asc": "возрастанию",
+    "desc": "убыванию",
+    "articleCreatePage": "страница создания статьи",
+    "articleEditPage": "страница редактирования статьи",
+    "edit article": "редактировать статью"
 }

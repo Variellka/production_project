@@ -8,31 +8,33 @@ import Text, { TextSize } from 'shared/ui/Text/Text';
 import Icon from 'shared/ui/Icon/Icon';
 import { Button } from 'shared/ui/Button/Button';
 import Avatar from 'shared/ui/Avatar/Avatar';
-import { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { HTMLAttributeAnchorTarget } from 'react';
 import ArticleTextBlockComponent from '../ArticleTextBlock/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {
     className?: string,
     article: Article,
-    view: ArticleView
+    view: ArticleView,
+    target?: HTMLAttributeAnchorTarget
 }
 
 const ArticleListItem = (props: ArticleListItemProps) => {
-    const { className, article, view } = props;
+    const {
+        className, article, view, target,
+    } = props;
     const { t } = useTranslation('articles');
-    const navigate = useNavigate();
-
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.article_detailed + article.id);
-    }, [article.id, navigate]);
 
     if (view === ArticleView.TILE) {
         return (
-            <div className={classNames(cls.ArticleListItem, {}, [className])}>
-                <div className={classNames(cls.card, {}, [cls[view]])} onClick={onOpenArticle}>
+            <AppLink
+                target={target}
+                to={RoutePath.article_detailed + article.id}
+                className={classNames(cls.ArticleListItem, {}, [className])}
+            >
+                <div className={classNames(cls.card, {}, [cls[view]])}>
                     <div className={cls.imageWrapper}>
                         <img src={article.img} alt={article.title} />
                         <Text text={article.createdAt} className={cls.date} />
@@ -46,7 +48,7 @@ const ArticleListItem = (props: ArticleListItemProps) => {
                     </div>
                     <Text text={article.title} className={cls.title} />
                 </div>
-            </div>
+            </AppLink>
         );
     }
 
@@ -69,9 +71,12 @@ const ArticleListItem = (props: ArticleListItemProps) => {
                 </div>
                 {textBlock && <ArticleTextBlockComponent className={cls.text} block={textBlock} />}
                 <div className={cls.infoWrapper}>
-                    <Button onClick={onOpenArticle}>
-                        {`${t('read more')} >`}
-                    </Button>
+                    <AppLink target={target} to={RoutePath.article_detailed + article.id}>
+                        <Button>
+                            {`${t('read more')} >`}
+                        </Button>
+                    </AppLink>
+
                     <div className={cls.iconWrapper}>
                         <Text text={article.views.toString()} />
                         <Icon Svg={EyeIcon} />

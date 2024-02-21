@@ -1,0 +1,21 @@
+.Tabs {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+
+    .Tab {
+        padding: 10px;
+        border-radius: 10px;
+        border: 5px solid var(--card-bg-color);
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.8;
+            transform: scale(1.08);
+        }
+    }
+}
+
+.active {
+    border: 5px solid var(--secondary-color) !important;
+}

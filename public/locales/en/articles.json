@@ -7,5 +7,17 @@
     "comments": "comments",
     "articles are not found": "articles are not found",
     "read more": "read more",
-    "back to articles": "back to articles"
+    "back to articles": "back to articles",
+    "sort by": "sort by",
+    "sort": "sort",
+    "search": "search",
+    "order by": "order by",
+    "views": "views",
+    "created date": "created date",
+    "title": "title",
+    "asc": "asc",
+    "desc": "desc",
+    "articleCreatePage": "articleCreatePage",
+    "articleEditPage": "articleEditPage",
+    "edit article": "edit article"
 }

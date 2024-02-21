@@ -5,10 +5,13 @@ import {
 import { useTranslation } from 'react-i18next';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import LogInIcon from 'shared/assets/icons/person-male-svgrepo-com.svg';
+import CreateIcon from 'shared/assets/icons/magic-wand.svg';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
 import Icon, { IconColor } from 'shared/ui/Icon/Icon';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -53,6 +56,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     return (
         <header className={classNames(cls.navbar, {}, [className])}>
+            <AppLink to={RoutePath.article_create} className={cls.create}>
+                <Icon Svg={CreateIcon} className={cls.icon} color={IconColor.BACKGROUND} />
+                {t('create article')}
+            </AppLink>
             <Button
                 theme={ThemeButton.CLEAR}
                 className={cls.links}

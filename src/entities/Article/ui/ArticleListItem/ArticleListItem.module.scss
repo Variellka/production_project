@@ -1,8 +1,8 @@
 /* stylelint-disable no-descending-specificity */
 .card {
+    color: var(--primary-color);
     background-color: var(--card-bg-color);
     width: 230px;
-    margin: 20px;
     padding: 15px;
     border-radius: 10px;
     cursor: pointer;
@@ -87,7 +87,7 @@
 
     .text {
         margin-bottom: 25px;
-        max-height: 210px;
+        max-height: 200px;
         overflow-y: hidden;
     }
 
@@ -99,6 +99,7 @@
 .LIST {
     width: auto;
     cursor: auto;
+    margin-bottom: 20px;
 
     &:hover {
         opacity: 1;

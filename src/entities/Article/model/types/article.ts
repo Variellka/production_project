@@ -31,6 +31,7 @@ export interface ArticleTextBlock extends ArticleBaseBlock {
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
 export enum ArticleType {
+    ALL = 'ALL',
     IT = 'IT',
     ECONOMICS = 'ECONOMICS',
     SCIENCE = 'SCIENCE'
@@ -51,4 +52,10 @@ export interface Article {
 export enum ArticleView {
     LIST = 'LIST',
     TILE = 'TILE'
+}
+
+export enum ArticleSortField {
+    VIEWS = 'views',
+    CREATED = 'createdAt',
+    TITLE = 'title'
 }
